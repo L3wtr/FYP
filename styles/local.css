@@ -1,0 +1,18 @@
+/* Local CSS Style ---------------------------------------------------------- */
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+
+body {
+    font-style: normal;
+    background: #fafafa;
+}
+
+.display-5 {
+    font-size: 2.7rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-right: 20px;
+}
