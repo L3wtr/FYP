@@ -2,7 +2,6 @@
 html, body {
     margin: 0;
     height: 100%;
-    overflow: hidden
 }
 
 body {
@@ -10,9 +9,53 @@ body {
     background: #fafafa;
 }
 
+figure figcaption {
+    padding-top: 10px;
+    text-align: center;
+}
+
 .display-5 {
     font-size: 2.7rem;
     font-weight: 300;
     line-height: 1.2;
     margin-right: 20px;
+}
+
+#content .display-5 {
+    white-space: nowrap;
+}
+
+.navbar-nav li {
+    margin: 0px 3px;
+}
+
+.navbar-nav li a:hover, .navbar-nav > .active > a {
+    color: #fff !important;
+    border-radius: 2px;
+
+    background-color:#294866 !important;
+    background-image: none !important;
+}
+
+/* Tab Content -------------------------------------------------------------- */
+#introduction-figure {
+    float: right;
+    margin-left: 20px;
+    min-width: 500px;
+    min-height: 400px;
+}
+
+#introduction-figure img, #input-figure img,
+  #output-figure img, #housing-figure img {
+    border-radius: 2px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#input-figure, #output-figure, #housing-figure {
+    float: left;
+    margin: 10px 20px 0px 0px;
+}
+
+#input-figure img, #output-figure img, #housing-figure img {
+  max-height: 75vh;
 }

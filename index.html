@@ -1,28 +1,27 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Browser Tab -->
-  <title>Learning Objects - Design and Manufacture</title>
-  <link rel="icon" href="https://www.imperial.ac.uk/T4Assets/favicon-196x196.png" type="image/x-icon">
+    <!-- Browser Tab -->
+    <title>Learning Objects - Design and Manufacture</title>
+    <link rel="icon" href="https://www.imperial.ac.uk/T4Assets/favicon-196x196.png" type="image/x-icon">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="styles/local.css"> 
-  <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
-  <link rel="stylesheet" type="text/css" href="styles/footer.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/local.css">
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
 
-  <!-- Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-  <!-- Local Scripts -->
-  <!-- <script src="scripts/draw.js"></script> -->
+    <!-- Local Scripts -->
+    <!-- <script src="scripts/draw.js"></script> -->
 
 </head>
 
@@ -39,7 +38,7 @@
                     <a href="#">
                         <i class="fas fa-home"></i>
                         Home
-                    </a>  
+                    </a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -74,10 +73,10 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Link 1 (Change)</a>
+                    <a href="https://www.imperial.ac.uk/" class="download">Link 1 (Change me)</a>
                 </li>
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Link 2 (Change)</a>
+                    <a href="https://www.imperial.ac.uk/" class="article">Link 2 (Change me)</a>
                 </li>
             </ul>
         </nav>
@@ -87,35 +86,93 @@
 
             <nav class="navbar navbar-expand navbar-light bg-light">
 
-                <h1 class="display-5">Engineering Tolerances</h1>
+                <h1 class="display-5">Engineering Tolerance</h1>
 
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Introduction</a>
+                            <li class="nav-item" id="introduction-tab">
+                                <a class="nav-link" href="#introduction">Introduction</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Input Shaft</a>
+                            <li class="nav-item" id="input_shaft-tab">
+                                <a class="nav-link" href="#input_shaft">Input Shaft</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Output Shaft</a>
+                            <li class="nav-item" id="output_shaft-tab">
+                                <a class="nav-link" href="#output_shaft">Output Shaft</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Housing</a>
+                            <li class="nav-item" id="gear_housing-tab">
+                                <a class="nav-link" href="#gear_housing">Gear Housing</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Simulation</a>
+                            <li class="nav-item" id="simulation-tab">
+                                <a class="nav-link" href="#simulation">Simulation</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            Hello, world!
+            <div id="navbar-content">
+                <div id="introduction-content">
+                    <h2>Introduction</h2>
+
+                    <figure id="introduction-figure">
+                        <img src="https://picsum.photos/500/400/?random" alt="Single-stage gearbox model">
+                        <figcaption>Figure 1 - Single-Stage Gearbox Model.</figcaption>
+                    </figure>
+
+                    <p class="text-dark font-weight-normal">
+                        Engineering tolerances decide the acceptable range of sizes of a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units, the variation in dimensions will follow a particular <b>Normal Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
+                    </p>
+                    <p class="text-dark font-weight-normal">
+                        The aim of this Learning Object is to demonstrate the importance of engineering tolerance in the manufacture and assembly of products. This exercise will cover the design of a simple single-stage gearbox, made up of an input shaft, output shaft and gear housing (see Figure 1). The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be required to tolerance each of the nominal dimensions. Once complete, the <b>Simulation</b> page can be used to test the statistical variation in size and to demonstrate the effect of tolerance stackup.
+                    </p>
+                </div>
+
+                <div id="input_shaft-content" style="display:none;">
+                    <h2>Input Shaft</h2>
+
+                    <figure id="input-figure">
+                      <img src="drawings/input.png" alt="Input Shaft">
+                      <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
+                    </figure>
+
+                    <p class="text-dark font-weight-normal">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dictum augue. In viverra lobortis tincidunt. Aenean ut convallis lorem, vulputate cursus libero. Suspendisse vestibulum metus nulla, a tincidunt ipsum sollicitudin eget. Duis tempor turpis quis semper viverra. Vestibulum ut sollicitudin massa. Ut lobortis efficitur feugiat. Aliquam volutpat ornare tellus, ut mollis felis tincidunt ac. Donec ac lorem augue. Fusce vehicula, sapien ut vehicula auctor, tortor sapien pharetra mi, sit amet volutpat ante metus vitae mauris. Praesent mi nibh, venenatis ac purus vitae, consectetur suscipit ex. Etiam egestas quam in metus tincidunt, ut convallis nibh vehicula. Aenean in dui ut neque finibus condimentum in non mi.
+                    </p>
+
+                </div>
+
+                <div id="output_shaft-content" style="display:none;">
+                    <h2>Output Shaft</h2>
+
+                    <p class="text-dark font-weight-normal">
+                        Click to add tolerances to the relevant dimensions.
+                    </p>
+                </div>
+
+                <div id="gear_housing-content" style="display:none;">
+                    <h2>Gear Housing</h2>
+
+                    <p class="text-dark font-weight-normal">
+                        Click to add tolerances to the relevant dimensions.
+                    </p>
+                </div>
+
+                <div id="simulation-content" style="display:none;">
+                    <h2>Simulation</h2>
+
+                    <p class="text-dark font-weight-normal">
+                        With each individual gearbox, the position of the inner components along the axial direction will vary based on the accepted tolerance. Starting from the bearing shoulder (label no.), each toleranced dimension along the shaft will contribute its own error based on the theoretical worst-case maximum. This is known as arithmetic tolerance stackup. Tolerance stackup calculations are a useful method of analysing engineering design and can be used to evaluate fits and potential misalignments.
+                    </p>
+                </div>
+
+            </div>
 
         </div>
     </div>
+
+    <script type="text/javascript" src="scripts/DOM.js"></script>
+
 </body>
 
 </html>
