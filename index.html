@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/local.css">
     <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="styles/button.css">
 
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
@@ -121,10 +122,10 @@
                     </figure>
 
                     <p class="text-dark font-weight-normal">
-                        Engineering tolerances decide the acceptable range of sizes of a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units, the variation in dimensions will follow a particular <b>Normal Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
+                        Engineering tolerances decide the acceptable range of sizes for a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units, the variation in dimensions will follow a particular <b>Normal Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
                     </p>
                     <p class="text-dark font-weight-normal">
-                        The aim of this Learning Object is to demonstrate the importance of engineering tolerance in the manufacture and assembly of products. This exercise will cover the design of a simple single-stage gearbox, made up of an input shaft, output shaft and gear housing (see Figure 1). The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be required to tolerance each of the nominal dimensions. Once complete, the <b>Simulation</b> page can be used to test the statistical variation in size and to demonstrate the effect of tolerance stackup.
+                        The aim of this Learning Object is to demonstrate the importance of engineering tolerance in the manufacture and assembly of products. This exercise will cover the design of a simple single-stage gearbox, made up of an input shaft, output shaft and gear housing (see Figure 1). The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be required to tolerance each of the nominal dimensions. The <b>Simulation</b> page can be used to test the statistical variation in size and to demonstrate the effect of tolerance stackup.
                     </p>
                 </div>
 
@@ -132,29 +133,75 @@
                     <h2>Input Shaft</h2>
 
                     <figure id="input-figure">
-                      <img src="drawings/input.png" alt="Input Shaft">
-                      <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
+                        <div id="input-container">
+                            <div class="btn-help">
+                                <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#helpModal">
+                                  <i class="fas fa-question"></i>
+                              </button>
+                            </div>
+
+                            <div class="dropdown show">
+                                <a class="btn btn-outline-danger btn-sm btn-rot btn-in20a" href="#" role="button" id="dropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="diameter">&#8960</span> 20
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown show">
+                                <a class="btn btn-outline-primary btn-sm btn-lvl btn-in10" href="#" role="button" id="dropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="diameter">&#8960</span> 20
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+
+                            <img src="drawings/input.png" alt="Input Shaft">
+                            <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
+                        </div>
                     </figure>
 
                     <p class="text-dark font-weight-normal">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dictum augue. In viverra lobortis tincidunt. Aenean ut convallis lorem, vulputate cursus libero. Suspendisse vestibulum metus nulla, a tincidunt ipsum sollicitudin eget. Duis tempor turpis quis semper viverra. Vestibulum ut sollicitudin massa. Ut lobortis efficitur feugiat. Aliquam volutpat ornare tellus, ut mollis felis tincidunt ac. Donec ac lorem augue. Fusce vehicula, sapien ut vehicula auctor, tortor sapien pharetra mi, sit amet volutpat ante metus vitae mauris. Praesent mi nibh, venenatis ac purus vitae, consectetur suscipit ex. Etiam egestas quam in metus tincidunt, ut convallis nibh vehicula. Aenean in dui ut neque finibus condimentum in non mi.
+                        The engineering drawing of the input shaft shown in Figure 2 includes the most relevant nominal dimensions required to ... . You are required to add the appropriate tolerances to each dimension according to the instructions provided.
                     </p>
+
+                    <h4>Instructions</h4>
 
                 </div>
 
                 <div id="output_shaft-content" style="display:none;">
                     <h2>Output Shaft</h2>
 
+                    <figure id="output-figure">
+                      <img src="drawings/output.png" alt="Output Shaft">
+                      <figcaption>Figure 3 - Output Shaft Engineering Drawing.</figcaption>
+                    </figure>
+
+                    <h4>Instructions</h4>
+
                     <p class="text-dark font-weight-normal">
-                        Click to add tolerances to the relevant dimensions.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dictum augue. In viverra lobortis tincidunt. Aenean ut convallis lorem, vulputate cursus libero. Suspendisse vestibulum metus nulla, a tincidunt ipsum sollicitudin eget. Duis tempor turpis quis semper viverra. Vestibulum ut sollicitudin massa. Ut lobortis efficitur feugiat. Aliquam volutpat ornare tellus, ut mollis felis tincidunt ac. Donec ac lorem augue. Fusce vehicula, sapien ut vehicula auctor, tortor sapien pharetra mi, sit amet volutpat ante metus vitae mauris. Praesent mi nibh, venenatis ac purus vitae, consectetur suscipit ex. Etiam egestas quam in metus tincidunt, ut convallis nibh vehicula. Aenean in dui ut neque finibus condimentum in non mi.
                     </p>
                 </div>
 
                 <div id="gear_housing-content" style="display:none;">
                     <h2>Gear Housing</h2>
 
+                    <figure id="housing-figure">
+                      <img src="drawings/case.png" alt="Gear Housing">
+                      <figcaption>Figure 4 - Gear Housing Engineering Drawing.</figcaption>
+                    </figure>
+
+                    <h4>Instructions</h4>
+
                     <p class="text-dark font-weight-normal">
-                        Click to add tolerances to the relevant dimensions.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dictum augue. In viverra lobortis tincidunt. Aenean ut convallis lorem, vulputate cursus libero. Suspendisse vestibulum metus nulla, a tincidunt ipsum sollicitudin eget. Duis tempor turpis quis semper viverra. Vestibulum ut sollicitudin massa. Ut lobortis efficitur feugiat. Aliquam volutpat ornare tellus, ut mollis felis tincidunt ac. Donec ac lorem augue. Fusce vehicula, sapien ut vehicula auctor, tortor sapien pharetra mi, sit amet volutpat ante metus vitae mauris. Praesent mi nibh, venenatis ac purus vitae, consectetur suscipit ex. Etiam egestas quam in metus tincidunt, ut convallis nibh vehicula. Aenean in dui ut neque finibus condimentum in non mi.
                     </p>
                 </div>
 
@@ -168,10 +215,35 @@
 
             </div>
 
+            <!-- Modal Content -->
+            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="helpModalLabel">Help</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-dark font-weight-normal">
+                                To add limits to a dimension, click on a coloured label and select a suitable fit from the list.
+                            </p>
+                            <p class="text-dark font-weight-normal">
+                                <span class="font-weight-bold btn btn-outline-danger">Red labels</span> indicate dimensions that must be toleranced according to a set of engineering standards.
+                            </p>
+                            <p class="text-dark font-weight-normal">
+                                <span class="font-weight-bold btn btn-outline-primary">Blue labels</span> indicate dimensions that are toleranced based on the number of significant figures.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <script type="text/javascript" src="scripts/DOM.js"></script>
+    <script type="text/javascript" src="js/DOM.js"></script>
 
 </body>
 

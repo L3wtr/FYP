@@ -1,0 +1,66 @@
+/* Help Button Style -------------------------------------------------------- */
+.btn-circle {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 1.33;
+    border-radius: 20px;
+}
+
+.modal-body .btn {
+    vertical-align: bottom;
+    padding: 3px 5px;
+}
+
+/* Help button type */
+.btn-help {
+    right: 0px;
+    position: absolute;
+    transform: translate(-33%, 33%);
+}
+
+/* Button SASS generated style */
+.btn-info {background-color:#294866; border-color: #294866;}
+.btn-info:hover {background-color: #1e354b; border-color: #1a2e42;}
+.btn-info:focus, .btn-info.focus {box-shadow: 0 0 0 3px rgba(41, 72, 102, 0.5);}
+.btn-info.disabled, .btn-info:disabled {background-color: #294866; border-color: #294866;}
+.btn-info:active, .btn-info.active,.show > .btn-info.dropdown-toggle {background-color: #1e354b; background-image: none; border-color: #1a2e42;}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {background-color: #1e354b; border-color: #1a2e42;}
+.btn-info:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(41,72,102,0.5)}
+
+/* Label Button Style -------------------------------------------------------- */
+.dropdown > .btn {
+  font-family: century-gothic, sans-serif;
+  font-size: 2vh;
+}
+
+.diameter {
+    font-size: 2.5vh;
+    line-height: 2vh;
+}
+
+/* Level button type */
+.btn-lvl {
+    position: absolute;
+    transform: translate(0, -50%);
+}
+
+/* Rotated button type*/
+.btn-rot {
+    position: absolute;
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(0, -50%);
+}
+
+/* Input Shaft Buttons ------------------------------------------------------ */
+.btn-in20a {
+    left: 35%;
+    top: 10vh;
+}
+
+.btn-in10 {
+    left: 55%;
+    top: 55vh;
+}

@@ -9,6 +9,10 @@ body {
     background: #fafafa;
 }
 
+figure {
+    position: relative;
+}
+
 figure figcaption {
     padding-top: 10px;
     text-align: center;
