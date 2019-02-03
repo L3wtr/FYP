@@ -1,5 +1,5 @@
-/* Document Ready */
-$( document ).ready(function() {
+/* Document Ready ----------------------------------------------------------- */
+$(document).ready(function() {
 
   /* Set default navbar tab*/
   location.hash = '#introduction';
@@ -8,7 +8,7 @@ $( document ).ready(function() {
 
 });
 
-/* Dynamic onhashchange event */
+/* Dynamic onhashchange event ----------------------------------------------- */
 window.addEventListener("hashchange", function() {
 
   /* Set active navbar tab */
@@ -24,4 +24,11 @@ window.addEventListener("hashchange", function() {
     $(hashID).fadeIn(250);
   });
 
+});
+
+/* Simulation onclick event ------------------------------------------------- */
+$('#sim-button').on('click', function() {
+
+  /* Simulate stackup model */
+  stackup();
 });

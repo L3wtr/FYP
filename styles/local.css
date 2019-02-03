@@ -50,7 +50,7 @@ figure figcaption {
 }
 
 #introduction-figure img, #input-figure img,
-  #output-figure img, #housing-figure img {
+  #output-figure img, #housing-figure img, #simulation-figure img{
     border-radius: 2px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
@@ -60,6 +60,56 @@ figure figcaption {
     margin: 10px 20px 0px 0px;
 }
 
+#simulation-figure {
+    float: left;
+    margin-right: 20px;
+}
+
 #input-figure img, #output-figure img, #housing-figure img {
-  max-height: 75vh;
+    max-height: 75vh;
+}
+
+#simulation-figure img {
+    display: inline-block;
+    max-height: 60vh;
+}
+
+#simulation-container {
+    width: 100%;
+}
+
+#simulation-container .card {
+    width: auto;
+}
+
+#simulation-plot {
+    width: 100%;
+}
+
+#sim-button {
+    float: left;
+}
+
+#modal-figure {
+    display: block;
+    margin: auto;
+    max-width: 400px;
+    padding-top: 10px;
+}
+
+/* List Style --------------------------------------------------------------- */
+/*.list-group-item {
+    background-color: #fafafa;
+}*/
+
+ul.list-group:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.list-group-item {
+    border: 0 !important;
+    margin: 0px 5px 10px 5px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
