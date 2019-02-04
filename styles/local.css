@@ -52,7 +52,6 @@ figure figcaption {
 #introduction-figure img, #input-figure img,
   #output-figure img, #housing-figure img, #simulation-figure img{
     border-radius: 2px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 #input-figure, #output-figure, #housing-figure {
@@ -62,7 +61,7 @@ figure figcaption {
 
 #simulation-figure {
     float: left;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 #input-figure img, #output-figure img, #housing-figure img {
@@ -71,19 +70,15 @@ figure figcaption {
 
 #simulation-figure img {
     display: inline-block;
-    max-height: 60vh;
-}
-
-#simulation-container {
-    width: 100%;
+    max-height: 64vh;
 }
 
 #simulation-container .card {
-    width: auto;
+    height: 64vh;
 }
 
 #simulation-plot {
-    width: 100%;
+    height: auto;
 }
 
 #sim-button {

@@ -119,7 +119,7 @@
                     <h2>Introduction</h2>
 
                     <figure id="introduction-figure">
-                        <img src="https://picsum.photos/500/400/?random" alt="Single-stage gearbox model">
+                        <img src="https://picsum.photos/500/400/?random" alt="Single-stage gearbox model" class="shadow">
                         <figcaption>Figure 1 - Single-Stage Gearbox Model.</figcaption>
                     </figure>
 
@@ -164,7 +164,7 @@
                                 </div>
                             </div>
 
-                            <img src="drawings/input.png" alt="Input Shaft">
+                            <img src="drawings/input.png" alt="Input Shaft" class="shadow">
                             <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
                         </div>
                     </figure>
@@ -193,7 +193,7 @@
                     <h2>Output Shaft</h2>
 
                     <figure id="output-figure">
-                      <img src="drawings/output.png" alt="Output Shaft">
+                      <img src="drawings/output.png" alt="Output Shaft" class="shadow">
                       <figcaption>Figure 3 - Output Shaft Engineering Drawing.</figcaption>
                     </figure>
 
@@ -210,7 +210,7 @@
                     <h2>Gear Housing</h2>
 
                     <figure id="housing-figure">
-                      <img src="drawings/case2.png" alt="Gear Housing">
+                      <img src="drawings/case2.png" alt="Gear Housing" class="shadow">
                       <figcaption>Figure 4 - Gear Housing Engineering Drawing.</figcaption>
                     </figure>
 
@@ -230,16 +230,60 @@
 
                     <div id="simulation-container">
                         <figure id="simulation-figure">
-                            <img src="drawings/case2.png" alt="Gear Housing">
-                            <figcaption>Engineering Drawing.</figcaption>
+                            <img src="drawings/assembly.png" alt="Assembly" class="shadow">
+                            <figcaption>Figure 5 - Gearbox Assembly Drawing.</figcaption>
                         </figure>
 
-                        <div class="card">
-                            <div id="simulation-plot"></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button id="sim-button" type="button" class="btn btn-info">Simulate</button>
+                        <div class="card bg-light">
+
+                            <div class="card-body shadow">
+                                <h5 class="card-title">Tolerance Stackup Distribution Model</h5>
+
+                                <div id="simulation-plot"></div>
+
+                                <div id="simulation-again" style="display:none;">
+                                    <div class="d-flex" >
+                                        <button id="sim-button-again" type="button" class="btn btn-info flex-fill">Run Again</button>
+                                        <button id="sim-button-reset" type="button" class="btn btn-info flex-fill">Reset</button>
+                                    </div>
+                                </div>
+
+                                <div id="simulation-settings">
+                                    <p class="card-text text-dark font-weight-normal">This model simulates the distribution of manufactured gearboxes based on limits you have applied. To test the variation in misalignment, select the dimensions you wish to include, the number of units to simulate and press run.</p>
+
+                                    <h6 class="card-title">Tolerances to include:</h6>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="check1">
+                                        <label class="form-check-label" for="check1">Tolerance 1</label><br>
+
+                                        <input class="form-check-input" type="checkbox" value="" id="check2">
+                                        <label class="form-check-label" for="check2">Tolerance 2</label><br>
+
+                                        <input class="form-check-input" type="checkbox" value="" id="check3">
+                                        <label class="form-check-label" for="check3">Tolerance 3</label><br>
+
+                                        <input class="form-check-input" type="checkbox" value="" id="check4">
+                                        <label class="form-check-label" for="check4">Tolerance 4</label><br>
+                                    </div><br>
+
+                                    <h6 class="card-title">Number of units:</h6>
+                                    <div class="btn-group btn-group-toggle d-flex" role="group">
+                                        <!-- 10 units is the default setting -->
+                                        <label id="10units" class="btn btn-info flex-fill"> 10
+                                          <input type="radio" name="Units" value="10" checked="checked">
+                                        </label>
+                                        <label id="100units" class="btn btn-outline-info flex-fill"> 100
+                                          <input type="radio" name="Units" value="100">
+                                        </label>
+                                        <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
+                                          <input type="radio" name="Units" value="10000">
+                                        </label>
+                                    </div><br>
+
+                                    <button id="sim-button" type="button" class="btn btn-block btn-info">Run</button>
+                                </div>
+
                             </div>
                         </div>
 

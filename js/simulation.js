@@ -9,27 +9,28 @@ function randPop(upper, lower, n) {
 }
 
 /* Stackup simulation method */
-function stackup() {
-  let tol = math.add(randPop(5, 10, 10000), randPop(5, 15, 10000), randPop(-10, 10, 10000), randPop(-5, 0, 10000));
+function stackup(units) {
+  let tol = math.add(randPop(5, 10, units), randPop(-5, 5, units), randPop(-10, 10, units), randPop(-5, 0, units));
 
   /* Histogram plot */
   let trace = {
         x: tol,
         type: 'histogram',
         marker: {
-          color: 'rgba(41, 72, 102, 0.9)',
+          color: 'rgba(41, 72, 102, 1)',
         }
       };
 
   let data = [trace];
 
   let layout = {
+    /*
     title: {
       text: '<b>Stackup Distribution</b>',
         font: {
           size: 16,
         }
-    },
+    },*/
     xaxis: {
       title: '<b>Total Misalignment (mm)</b>',
       showgrid: false,
@@ -42,9 +43,11 @@ function stackup() {
       fixedrange: true
     },
     margin: {
-      t: 70,
+      t: 30,
       pad: 5
-    }
+    },
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    paper_bgcolor: 'rgba(0,0,0,0)'
   };
 
   Plotly.newPlot('simulation-plot', data, layout,  {displayModeBar: false});

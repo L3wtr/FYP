@@ -27,12 +27,24 @@
 
 /* Button SASS generated style */
 .btn-info {background-color:#294866; border-color: #294866;}
-.btn-info:hover {background-color: #1e354b; border-color: #1a2e42;}
-.btn-info:focus, .btn-info.focus {box-shadow: 0 0 0 3px rgba(41, 72, 102, 0.5);}
-.btn-info.disabled, .btn-info:disabled {background-color: #294866; border-color: #294866;}
-.btn-info:active, .btn-info.active,.show > .btn-info.dropdown-toggle {background-color: #1e354b; background-image: none; border-color: #1a2e42;}
-.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {background-color: #1e354b; border-color: #1a2e42;}
-.btn-info:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(41,72,102,0.5)}
+.btn-info:hover, .btn-outline-info:hover {background-color: #1e354b; border-color: #1a2e42;}
+.btn-info:focus, .btn-info.focus, .btn-outline-info:focus, .btn-outline-info.focus {box-shadow: 0 0 0 3px rgba(41, 72, 102, 0.5);}
+.btn-info.disabled, .btn-info:disabled, .btn-outline-info.disabled, .btn-outline-info:disabled {background-color: #294866; border-color: #294866;}
+.btn-info:active, .btn-info.active,.show > .btn-info.dropdown-toggle, .btn-outline-info:active, .btn-outline-info.active,.show > .btn-outline-info.dropdown-toggle {background-color: #1e354b; background-image: none; border-color: #1a2e42;}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle, .btn-outline-info:not(:disabled):not(.disabled).active, .btn-outline-info:not(:disabled):not(.disabled):active, .show>.btn-outline-info.dropdown-toggle {background-color: #1e354b; border-color: #1a2e42;}
+.btn-info:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus, .btn-outline-info:not(:disabled):not(.disabled):active:focus,.btn-outline-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-primary.dropdown-toggle:focus {box-shadow:0 0 0 .2rem rgba(41,72,102,0.5)}
+
+.btn-outline-info {border-color: #294866; color: #123456;}
+
+/* Button Group Style -------------------------------------------------------- */
+.flex-fill {
+    flex: 1 1 0;
+    width: 0;
+}
+
+#simulation-again .btn {
+    margin: 0px 10px 0px 10px;
+}
 
 /* Label Button Style -------------------------------------------------------- */
 .dropdown > .btn {
