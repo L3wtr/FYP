@@ -124,7 +124,7 @@
                     </figure>
 
                     <p class="text-dark font-weight-normal">
-                        Engineering tolerances decide the acceptable range of sizes for a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units, the variation in dimensions will follow a particular <b>Normal Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
+                        Engineering tolerances decide the acceptable range of sizes for a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units of the same component, the variation in dimensions will tend to follow a particular <b>Gaussian Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
                     </p>
                     <p class="text-dark font-weight-normal">
                         The aim of this Learning Object is to demonstrate the importance of engineering tolerance in the manufacture and assembly of products. This exercise will cover the design of a simple single-stage gearbox, made up of an input shaft, output shaft and gear housing (see Figure 1). The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be required to tolerance each of the nominal dimensions. The <b>Simulation</b> page can be used to test the statistical variation in size and to demonstrate the effect of tolerance stackup.
@@ -142,25 +142,31 @@
                               </button>
                             </div>
 
-                            <div class="dropdown show">
-                                <a class="btn btn-outline-danger btn-sm btn-rot btn-in20a" href="#" role="button" id="dropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="diameter">&#8960</span> 20
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                            <div id="red-in20" class="btn-group-vertical btn-lvl" role="group" aria-label="Vertical button group">
+                                <div id="red-in20plus" class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select upper limit</button>
+                                    <div class="dropdown-menu red-plus">
+                                        <option class="dropdown-item" value="1">+ 1.0 mm</option>
+                                        <option class="dropdown-item" value="2">+ 2.0 mm</option>
+                                        <option class="dropdown-item" value="3">+ 3.0 mm</option>
+                                    </div>
+                                </div>
+                                <div id="red-in20minus" class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select lower limit</button>
+                                    <div class="dropdown-menu red-minus">
+                                        <option class="dropdown-item" value="-1">&#8211 1.0 mm</option>
+                                        <option class="dropdown-item" value="-2">&#8211 2.0 mm</option>
+                                        <option class="dropdown-item" value="-3">&#8211 3.0 mm</option>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="dropdown show">
-                                <a class="btn btn-outline-primary btn-sm btn-lvl btn-in10" href="#" role="button" id="dropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="diameter">&#8960</span> 20
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                            <div id="blue-in10" class="btn-group btn-lvl">
+                                <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&Oslash 10 </button>
+                                <div class="dropdown-menu blue">
+                                    <option class="dropdown-item" value="0.50-10">10 mm</option>
+                                    <option class="dropdown-item" value="0.10-10.0">10.0 mm</option>
+                                    <option class="dropdown-item" value="0.02-10.00">10.00 mm</option>
                                 </div>
                             </div>
 
@@ -182,9 +188,9 @@
                     </p>
                     <div class="dd">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item list-group-item-warning font-weight-bold"><i class="far fa-square"></i> &nbsp Add sizes and tolerances to the keyway.</li>
-                            <li class="list-group-item list-group-item-warning font-weight-bold"><i class="far fa-square"></i> &nbsp Add tolerances to the a ... interference fit.</li>
-                            <li class="list-group-item list-group-item-success font-weight-bold"><i class="far fa-check-square"></i> &nbsp Add tolerances to the floating bearing fit.</li>
+                            <li class="list-group-item list-group-item font-weight-bold shadow-sm"><i class="far fa-square"></i> &nbsp Add sizes and tolerances to the keyway.</li>
+                            <li class="list-group-item list-group-item font-weight-bold shadow-sm"><i class="far fa-square"></i> &nbsp Add tolerances to the a ... interference fit.</li>
+                            <li class="list-group-item list-group-item-success font-weight-bold shadow-sm"><i class="far fa-check-square"></i> &nbsp Add tolerances to the floating bearing fit.</li>
                         </ul>
                     </div>
                 </div>
@@ -237,7 +243,7 @@
                         <div class="card bg-light">
 
                             <div class="card-body shadow">
-                                <h5 class="card-title">Tolerance Stackup Distribution Model</h5>
+                                <h5 class="card-title">Tolerance Stackup Distribution Model</h5><hr/>
 
                                 <div id="simulation-plot"></div>
 
@@ -249,22 +255,27 @@
                                 </div>
 
                                 <div id="simulation-settings">
-                                    <p class="card-text text-dark font-weight-normal">This model simulates the distribution of manufactured gearboxes based on limits you have applied. To test the variation in misalignment, select the dimensions you wish to include, the number of units to simulate and press run.</p>
+                                    <p class="card-text text-dark font-weight-normal">This model simulates the distribution of manufactured gearboxes based on limits you have applied. To test the variation in misalignment, select the dimensions you wish to include, the number of units to simulate and press run.</p><hr/>
 
                                     <h6 class="card-title">Tolerances to include:</h6>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="check1">
-                                        <label class="form-check-label" for="check1">Tolerance 1</label><br>
+                                    <div id="tol-check" class="form-check">
+                                        <input class="form-check-input tol-all" type="checkbox" value="0" id="check0" checked="checked">
+                                        <label class="form-check-label" for="check0">Select all</label><br>
 
-                                        <input class="form-check-input" type="checkbox" value="" id="check2">
-                                        <label class="form-check-label" for="check2">Tolerance 2</label><br>
+                                        <div class="tol-single">
+                                            <input class="form-check-input" type="checkbox" value="0" id="check1" checked="checked">
+                                            <label class="form-check-label" for="check1">Tolerance 1</label><br>
 
-                                        <input class="form-check-input" type="checkbox" value="" id="check3">
-                                        <label class="form-check-label" for="check3">Tolerance 3</label><br>
+                                            <input class="form-check-input" type="checkbox" value="1" id="check2" checked="checked">
+                                            <label class="form-check-label" for="check2">Tolerance 2</label><br>
 
-                                        <input class="form-check-input" type="checkbox" value="" id="check4">
-                                        <label class="form-check-label" for="check4">Tolerance 4</label><br>
+                                            <input class="form-check-input" type="checkbox" value="2" id="check3" checked="checked">
+                                            <label class="form-check-label" for="check3">Tolerance 3</label><br>
+
+                                            <input class="form-check-input" type="checkbox" value="3" id="check4" checked="checked">
+                                            <label class="form-check-label" for="check4">Tolerance 4</label><br>
+                                        </div>
                                     </div><br>
 
                                     <h6 class="card-title">Number of units:</h6>
@@ -279,9 +290,11 @@
                                         <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
                                           <input type="radio" name="Units" value="10000">
                                         </label>
-                                    </div><br>
+                                    </div><hr/>
 
-                                    <button id="sim-button" type="button" class="btn btn-block btn-info">Run</button>
+                                    <span class="tooltip-wrapper btn-block disabled">
+                                        <button id="sim-button" type="button" class="btn btn-block btn-info">Run</button>
+                                    </span>
                                 </div>
 
                             </div>
@@ -308,10 +321,10 @@
                                 To add limits to a dimension, click on a coloured label and select a suitable fit from the list.
                             </p>
                             <p class="text-dark font-weight-normal">
-                                <span class="font-weight-bold btn btn-outline-danger">Red labels</span> indicate dimensions that must be toleranced according to a set of engineering standards.
+                                <span class="btn btn-outline-danger">Red labels</span> indicate dimensions that must be toleranced according to a set of engineering standards.
                             </p>
                             <p class="text-dark font-weight-normal">
-                                <span class="font-weight-bold btn btn-outline-primary">Blue labels</span> indicate dimensions that are toleranced based on the number of significant figures.
+                                <span class="btn btn-outline-primary">Blue labels</span> indicate dimensions that are toleranced based on the number of significant figures.
                             </p>
                             <figure>
                               <img id="modal-figure" src="drawings/tolerances.png" alt="Drawing Tolerances">

@@ -6,6 +6,14 @@ $(document).ready(function() {
   $(".nav li").removeClass('active');
   $("#introduction-tab").addClass('active');
 
+  // Update checkbox disable state
+  checkChecked.change();
+
+  // Enable tooltip
+  $(function() {
+    $('.tooltip-wrapper').tooltip({position: "bottom"});
+  });
+
 });
 
 /* Dynamic onhashchange event ----------------------------------------------- */
@@ -23,6 +31,76 @@ window.addEventListener("hashchange", function() {
   $("#navbar-content").children().fadeOut(250).promise().done( function() {
     $(hashID).fadeIn(250);
   });
+
+});
+
+/* Dropdown button selection ------------------------------------------------ */
+$(".dropdown-item").click(function() {
+
+  // Change text style to match drawing
+  $(".btn.dropdown-toggle").css({'font-family': 'century-gothic, sans-serif', 'font-size': '1.8vh'});
+
+  // Button group ID
+  var btnID = $(this).parent().parent().attr('id');
+
+  // Filter through button types ()
+  if ($(this).parent().hasClass('red-plus')) {
+
+    $('#' + btnID + ' button').html('+ ' + $(this).val() + '.0 ');
+  }
+  else if ($(this).parent().hasClass('red-minus')) {
+
+    $('#' + btnID + ' button').html('&#8211 ' + $(this).val().substring(1) + '.0 ');
+  }
+  else if ($(this).parent().hasClass('blue')) {
+
+    $('#' + btnID + ' button').html('&Oslash ' + $(this).val().substring(5) + ' ');
+
+  }
+  else {
+    console.log('Warning: Button class unassigned.')
+  }
+
+});
+
+/* Select all checkbox event ------------------------------------------------ */
+$(".tol-all").click(function() {
+
+  // Checks all boxes if select is checked
+  $("input:checkbox").not(this).prop('checked', this.checked);
+
+});
+
+/* Toggle select all checkbox check */
+$(".tol-single").click(function() {
+
+  // Checks to see if all tolerance options are selected
+  if ($("input:checkbox").not(".tol-all").not(':checked').length == 0) {
+
+    $(".tol-all").prop('checked', true);
+  } 
+  else {
+
+    $(".tol-all").prop('checked', false);
+  }
+
+});
+
+/* Disable run button if no checkboxes selected ----------------------------- */
+var checkChecked = $(".form-check-input");
+
+checkChecked.change(function () {
+  $('#sim-button').prop('disabled', checkChecked.filter(':checked').length < 1);
+  
+  // Toggles tool tip based on disabled state
+  if (checkChecked.filter(':checked').length < 1) {
+
+    $(".tooltip-wrapper").attr('data-original-title', "Please select a tolerance to include");
+  }
+  else {
+
+    $(".tooltip-wrapper").attr('data-original-title', "");
+  }
 
 });
 

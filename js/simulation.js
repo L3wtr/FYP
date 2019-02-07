@@ -10,7 +10,21 @@ function randPop(upper, lower, n) {
 
 /* Stackup simulation method */
 function stackup(units) {
-  let tol = math.add(randPop(5, 10, units), randPop(-5, 5, units), randPop(-10, 10, units), randPop(-5, 0, units));
+
+  // JQuery fetching tolerance limits
+  let limits = [-0.5, 0.5, -0.1, 0.1, -0.1, 0.1, -0.5, 0.5];
+
+  let tolIndex = $(".tol-single input:checkbox:not(:checked)").map(function() {
+      return $(this).val();
+    }).get();
+
+  for (let i=0; i<tolIndex.length; i++) {
+    limits[2*i] = 0;
+    limits[2*i+1] = 0;
+  }
+
+  let tol = math.add(randPop(limits[0], limits[1], units), randPop(limits[2], limits[3], units),
+                      randPop(limits[4], limits[5], units), randPop(limits[6], limits[7], units));
 
   /* Histogram plot */
   let trace = {

@@ -92,6 +92,10 @@ figure figcaption {
     padding-top: 10px;
 }
 
+.tol-single {
+    margin-left: 20px;
+}
+
 /* List Style --------------------------------------------------------------- */
 /*.list-group-item {
     background-color: #fafafa;
@@ -106,5 +110,4 @@ ul.list-group:after {
 .list-group-item {
     border: 0 !important;
     margin: 0px 5px 10px 5px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }

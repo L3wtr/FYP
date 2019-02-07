@@ -46,37 +46,46 @@
     margin: 0px 10px 0px 10px;
 }
 
-/* Label Button Style -------------------------------------------------------- */
-.dropdown > .btn {
-  font-family: century-gothic, sans-serif;
-  font-size: 2vh;
+/* Run button tooltip -------------------------------------------------------- */
+.tooltip-wrapper {
+  display: inline-block;
 }
 
-.diameter {
-    font-size: 2.5vh;
-    line-height: 2vh;
+.tooltip-wrapper .btn[disabled] {
+  pointer-events: none;
+}
+
+.tooltip-inner {
+  white-space:nowrap;
+  max-width:none;
+}
+
+/* Label Button Style -------------------------------------------------------- */
+/*.btn.dropdown-toggle {
+  font-family: century-gothic, sans-serif;
+  font-size: 2vh;
+}*/
+
+.red-plus .dropdown-item.active, .red-plus .dropdown-item:active, .red-minus .dropdown-item.active, .red-minus .dropdown-item:active  {
+    background-color: #dc3545;
+}
+
+.blue .dropdown-item.active, .blue .dropdown-item:active {
+    background-color: #007bff;
 }
 
 /* Level button type */
 .btn-lvl {
     position: absolute;
-    transform: translate(0, -50%);
-}
-
-/* Rotated button type*/
-.btn-rot {
-    position: absolute;
-    transform-origin: top left;
-    transform: rotate(-90deg) translate(0, -50%);
 }
 
 /* Input Shaft Buttons ------------------------------------------------------ */
-.btn-in20a {
-    left: 35%;
-    top: 10vh;
+#red-in20 {
+    left: 37%;
+    top: calc(8.5% - 34px);
 }
 
-.btn-in10 {
-    left: 55%;
-    top: 55vh;
+#blue-in10 {
+    left: 49%;
+    top: calc(71% - 34px);
 }
