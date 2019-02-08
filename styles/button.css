@@ -61,10 +61,10 @@
 }
 
 /* Label Button Style -------------------------------------------------------- */
-/*.btn.dropdown-toggle {
+.dropdown-toggle {
   font-family: century-gothic, sans-serif;
-  font-size: 2vh;
-}*/
+  font-size: 1.8vh;
+}
 
 .red-plus .dropdown-item.active, .red-plus .dropdown-item:active, .red-minus .dropdown-item.active, .red-minus .dropdown-item:active  {
     background-color: #dc3545;

@@ -13,7 +13,6 @@ $(document).ready(function() {
   $(function() {
     $('.tooltip-wrapper').tooltip({position: "bottom"});
   });
-
 });
 
 /* Dynamic onhashchange event ----------------------------------------------- */
@@ -31,36 +30,29 @@ window.addEventListener("hashchange", function() {
   $("#navbar-content").children().fadeOut(250).promise().done( function() {
     $(hashID).fadeIn(250);
   });
-
 });
 
 /* Dropdown button selection ------------------------------------------------ */
 $(".dropdown-item").click(function() {
 
-  // Change text style to match drawing
-  $(".btn.dropdown-toggle").css({'font-family': 'century-gothic, sans-serif', 'font-size': '1.8vh'});
-
   // Button group ID
   var btnID = $(this).parent().parent().attr('id');
 
   // Filter through button types ()
-  if ($(this).parent().hasClass('red-plus')) {
-
-    $('#' + btnID + ' button').html('+ ' + $(this).val() + '.0 ');
-  }
-  else if ($(this).parent().hasClass('red-minus')) {
-
-    $('#' + btnID + ' button').html('&#8211 ' + $(this).val().substring(1) + '.0 ');
-  }
-  else if ($(this).parent().hasClass('blue')) {
+  if ($(this).parent().hasClass('blue')) {
 
     $('#' + btnID + ' button').html('&Oslash ' + $(this).val().substring(5) + ' ');
-
   }
   else {
-    console.log('Warning: Button class unassigned.')
-  }
+    if ($(this).parent().hasClass('red-plus')) {
 
+      $('#' + btnID + ' button').html('+ ' + $(this).val() + '.0 ');
+    }
+    else if ($(this).parent().hasClass('red-minus')) {
+
+      $('#' + btnID + ' button').html('&#8211 ' + $(this).val().substring(1) + '.0 ');
+    }
+  }
 });
 
 /* Select all checkbox event ------------------------------------------------ */
@@ -78,12 +70,11 @@ $(".tol-single").click(function() {
   if ($("input:checkbox").not(".tol-all").not(':checked').length == 0) {
 
     $(".tol-all").prop('checked', true);
-  } 
+  }
   else {
 
     $(".tol-all").prop('checked', false);
   }
-
 });
 
 /* Disable run button if no checkboxes selected ----------------------------- */
@@ -91,7 +82,7 @@ var checkChecked = $(".form-check-input");
 
 checkChecked.change(function () {
   $('#sim-button').prop('disabled', checkChecked.filter(':checked').length < 1);
-  
+
   // Toggles tool tip based on disabled state
   if (checkChecked.filter(':checked').length < 1) {
 
@@ -101,7 +92,6 @@ checkChecked.change(function () {
 
     $(".tooltip-wrapper").attr('data-original-title', "");
   }
-
 });
 
 /* Simulation radio button group event -------------------------------------- */
@@ -113,39 +103,40 @@ $("#10units, #100units, #10000units").on('click', function() {
 
   // Toggle button class for clarification
   $(this).toggleClass('btn-outline-info btn-info');
-
 });
 
 /* Simulation run onclick event --------------------------------------------- */
 $("#sim-button").on('click', function() {
 
-  units = $('input[name=Units]:checked').val();
+  var units = $('input[name=Units]:checked').val();
 
   // Simulate stackup model
   stackup(units);
   $("#simulation-plot").hide();
 
   $("#simulation-settings").fadeOut(250).promise().done( function() {
-      $("#simulation-plot, #simulation-again").fadeIn(250);
+      $("#simulation-plot").fadeTo(250,100);
+      $("#simulation-again").fadeIn(250);
   });
-
 });
 
 /* Simulation run again onclick event --------------------------------------- */
 $("#sim-button-again").on('click', function() {
 
-  units = $('input[name=Units]:checked').val();
+  var units = $('input[name=Units]:checked').val();
 
   // Simulate stackup model
   stackup(units);
-
 });
 
 /* Simulation reset onclick event ------------------------------------------- */
 $("#sim-button-reset").on('click', function() {
 
-  $("#simulation-plot, #simulation-again").fadeOut(250).promise().done( function() {
-    $("#simulation-settings").fadeIn(250);
+  $("#simulation-plot").fadeTo(250,0).promise().done( function() {
+    $("#simulation-plot").empty();
   });
 
+  $("#simulation-again").fadeOut(250).promise().done( function() {
+    $("#simulation-settings").fadeIn(250);
+  });
 });
