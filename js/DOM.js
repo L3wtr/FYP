@@ -140,3 +140,25 @@ $("#sim-button-reset").on('click', function() {
     $("#simulation-settings").fadeIn(250);
   });
 });
+
+
+/* Tesseract.js testing ----------------------------------------------------- */
+
+/*
+let img = new Image()
+img.src = "https://i.imgur.com/FkLGnxH.png"
+img.crossOrigin = "Anonymous";
+
+img.onload = function() {
+
+  Tesseract.recognize(img).progress((progress)=>{
+
+    if (progress.status === "recognizing text") {
+      $('#progress').text(progress.progress*100 + "%");
+    }
+  }).then((result)=>{
+
+    $('#result').text(result.text);
+  })
+}
+*/

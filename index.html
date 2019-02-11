@@ -23,6 +23,9 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.min.js"></script>
 
+    <!-- Temp tesseract.js script
+    <script src='https://cdn.jsdelivr.net/gh/naptha/tesseract.js@v1.0.14/dist/tesseract.min.js'></script> -->
+
     <!-- Local Scripts -->
     <script src="js/simulation.js"></script>
 
@@ -109,6 +112,9 @@
                             <li class="nav-item" id="simulation-tab">
                                 <a class="nav-link" href="#simulation">Simulation</a>
                             </li>
+                            <li class="nav-item" id="custom-tab">
+                                <a class="nav-link" href="#custom">Custom</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -174,25 +180,6 @@
                             <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
                         </div>
                     </figure>
-
-                    <p class="text-dark font-weight-normal">
-                        The engineering drawing of the input shaft shown in Figure 2 includes the most relevant nominal dimensions required to ... . You are required to add the appropriate tolerances to each dimension according to the instructions provided.
-                    </p>
-
-                    <h4>Instructions</h4>
-                    <p class="text-dark font-weight-normal">
-                        The input shaft is supported by two bearings (one fixed side, one floating side), with the left bearing constrained using a circlip. A helical gear is fixed to the shaft using a ... inteference fit. The shaft also includes a keyway to couple the input.
-                    </p>
-                    <p class="text-dark font-weight-normal">
-                        The instructions are as follows:
-                    </p>
-                    <div class="dd">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item list-group-item font-weight-bold shadow-sm"><i class="far fa-square"></i> &nbsp Add sizes and tolerances to the keyway.</li>
-                            <li class="list-group-item list-group-item font-weight-bold shadow-sm"><i class="far fa-square"></i> &nbsp Add tolerances to the a ... interference fit.</li>
-                            <li class="list-group-item list-group-item-success font-weight-bold shadow-sm"><i class="far fa-check-square"></i> &nbsp Add tolerances to the floating bearing fit.</li>
-                        </ul>
-                    </div>
                 </div>
 
                 <div id="output_shaft-content" style="display:none;">
@@ -202,14 +189,6 @@
                       <img src="drawings/output.png" alt="Output Shaft" class="shadow">
                       <figcaption>Figure 3 - Output Shaft Engineering Drawing.</figcaption>
                     </figure>
-
-                    <h4>Instructions</h4>
-                    <p class="text-dark font-weight-normal">
-                        The output shaft is supported by two bearings (one fixed side, one floating side), with the right bearing constrained using a circlip. A helical gear is fixed to the shaft using a ... inteference fit. The shaft also includes a keyway to couple the output.
-                    </p>
-                    <p class="text-dark font-weight-normal">
-                        The instructions are as follows:
-                    </p>
                 </div>
 
                 <div id="gear_housing-content" style="display:none;">
@@ -219,12 +198,6 @@
                       <img src="drawings/case2.png" alt="Gear Housing" class="shadow">
                       <figcaption>Figure 4 - Gear Housing Engineering Drawing.</figcaption>
                     </figure>
-
-                    <h4>Instructions</h4>
-
-                    <p class="text-dark font-weight-normal">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dictum augue. In viverra lobortis tincidunt. Aenean ut convallis lorem, vulputate cursus libero. Suspendisse vestibulum metus nulla, a tincidunt ipsum sollicitudin eget. Duis tempor turpis quis semper viverra. Vestibulum ut sollicitudin massa. Ut lobortis efficitur feugiat. Aliquam volutpat ornare tellus, ut mollis felis tincidunt ac. Donec ac lorem augue. Fusce vehicula, sapien ut vehicula auctor, tortor sapien pharetra mi, sit amet volutpat ante metus vitae mauris. Praesent mi nibh, venenatis ac purus vitae, consectetur suscipit ex. Etiam egestas quam in metus tincidunt, ut convallis nibh vehicula. Aenean in dui ut neque finibus condimentum in non mi.
-                    </p>
                 </div>
 
                 <div id="simulation-content" style="display:none;">
@@ -301,6 +274,14 @@
                         </div>
 
                     </div>
+
+                </div>
+
+                <div id="custom-content" style="display:none;">
+                    <h2>Custom</h2>
+
+                    <span id="progress"></span>
+                    <span id="result"></span>
 
                 </div>
 
