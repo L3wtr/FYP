@@ -112,12 +112,8 @@ span {
     font-size: 1.8em;
 }
 
-#sidebar ul.components {
-    padding: 20px 0;
-}
-
 #sidebar ul li a {
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     font-size: 1.1em;
     display: block;
 }
@@ -155,27 +151,24 @@ ul ul a {
     background: #294866;
 }
 
-ul.CTAs {
-    padding: 20px;
+a.sidelink {
+    background: #294866;
+    color: #fff;
 }
 
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-a.download {
+a.sidelink:hover {
     background: #fff;
     color: #123456;
 }
 
-a.article,
-a.article:hover {
-    background: #294866 !important;
-    color: #fff !important;
+.icon-width {
+    min-width: 1em;
+    text-align: center;
+}
+
+#sidebar ul h5 {
+  padding-left: 10px;
+  margin-top: 20px;
 }
 
 /* ---------------------------------------------------

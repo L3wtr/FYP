@@ -31,88 +31,13 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h2 class="display-5">Learning Objects</h2>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#">
-                        <i class="fas fa-home"></i>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
-                        Submenu
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Link 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-question"></i>
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://www.imperial.ac.uk/" class="download">Link 1 (Change me)</a>
-                </li>
-                <li>
-                    <a href="https://www.imperial.ac.uk/" class="article">Link 2 (Change me)</a>
-                </li>
-            </ul>
-        </nav>
+        <div id="sidebar-placeholder"></div>
 
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand navbar-light bg-light">
-
-                <h1 class="display-5">Engineering Tolerance</h1>
-
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item" id="introduction-tab">
-                                <a class="nav-link" href="#introduction">Introduction</a>
-                            </li>
-                            <li class="nav-item" id="input_shaft-tab">
-                                <a class="nav-link" href="#input_shaft">Input Shaft</a>
-                            </li>
-                            <li class="nav-item" id="output_shaft-tab">
-                                <a class="nav-link" href="#output_shaft">Output Shaft</a>
-                            </li>
-                            <li class="nav-item" id="gear_housing-tab">
-                                <a class="nav-link" href="#gear_housing">Gear Housing</a>
-                            </li>
-                            <li class="nav-item" id="simulation-tab">
-                                <a class="nav-link" href="#simulation">Simulation</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <!-- Navigation Bar -->
+            <div id="navbar-placeholder"></div>
 
             <div id="navbar-content">
                 <div id="introduction-content">
@@ -174,25 +99,6 @@
                             <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
                         </div>
                     </figure>
-
-                    <p class="text-dark font-weight-normal">
-                        The engineering drawing of the input shaft shown in Figure 2 includes the most relevant nominal dimensions required to ... . You are required to add the appropriate tolerances to each dimension according to the instructions provided.
-                    </p>
-
-                    <h4>Instructions</h4>
-                    <p class="text-dark font-weight-normal">
-                        The input shaft is supported by two bearings (one fixed side, one floating side), with the left bearing constrained using a circlip. A helical gear is fixed to the shaft using a ... inteference fit. The shaft also includes a keyway to couple the input.
-                    </p>
-                    <p class="text-dark font-weight-normal">
-                        The instructions are as follows:
-                    </p>
-                    <div class="dd">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item list-group-item font-weight-bold shadow-sm"><i class="far fa-square"></i> &nbsp Add sizes and tolerances to the keyway.</li>
-                            <li class="list-group-item list-group-item font-weight-bold shadow-sm"><i class="far fa-square"></i> &nbsp Add tolerances to the a ... interference fit.</li>
-                            <li class="list-group-item list-group-item-success font-weight-bold shadow-sm"><i class="far fa-check-square"></i> &nbsp Add tolerances to the floating bearing fit.</li>
-                        </ul>
-                    </div>
                 </div>
 
                 <div id="output_shaft-content" style="display:none;">
@@ -202,14 +108,6 @@
                       <img src="drawings/output.png" alt="Output Shaft" class="shadow">
                       <figcaption>Figure 3 - Output Shaft Engineering Drawing.</figcaption>
                     </figure>
-
-                    <h4>Instructions</h4>
-                    <p class="text-dark font-weight-normal">
-                        The output shaft is supported by two bearings (one fixed side, one floating side), with the right bearing constrained using a circlip. A helical gear is fixed to the shaft using a ... inteference fit. The shaft also includes a keyway to couple the output.
-                    </p>
-                    <p class="text-dark font-weight-normal">
-                        The instructions are as follows:
-                    </p>
                 </div>
 
                 <div id="gear_housing-content" style="display:none;">
@@ -219,12 +117,6 @@
                       <img src="drawings/case2.png" alt="Gear Housing" class="shadow">
                       <figcaption>Figure 4 - Gear Housing Engineering Drawing.</figcaption>
                     </figure>
-
-                    <h4>Instructions</h4>
-
-                    <p class="text-dark font-weight-normal">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dictum augue. In viverra lobortis tincidunt. Aenean ut convallis lorem, vulputate cursus libero. Suspendisse vestibulum metus nulla, a tincidunt ipsum sollicitudin eget. Duis tempor turpis quis semper viverra. Vestibulum ut sollicitudin massa. Ut lobortis efficitur feugiat. Aliquam volutpat ornare tellus, ut mollis felis tincidunt ac. Donec ac lorem augue. Fusce vehicula, sapien ut vehicula auctor, tortor sapien pharetra mi, sit amet volutpat ante metus vitae mauris. Praesent mi nibh, venenatis ac purus vitae, consectetur suscipit ex. Etiam egestas quam in metus tincidunt, ut convallis nibh vehicula. Aenean in dui ut neque finibus condimentum in non mi.
-                    </p>
                 </div>
 
                 <div id="simulation-content" style="display:none;">

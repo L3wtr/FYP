@@ -27,7 +27,7 @@ function randNorm(limit, n) {
 function stackup(units) {
 
   // JQuery fetching tolerance limits
-  let limits = [0.5, 0.1, 0.1, 0.5];
+  let limits = [0.5, 0.5, 0.5, 0.5];
 
   // Assign limits based on checkbox selection
   let tolIndex = $(".tol-single input:checkbox:not(:checked)").map(function() {
@@ -51,6 +51,7 @@ function stackup(units) {
   let trace = {
         x: tol,
         type: 'histogram',
+        name: 'Units',
         marker: {
           color: 'rgba(41, 72, 102, 1)'
         },
@@ -59,14 +60,16 @@ function stackup(units) {
 
   // Statistics (for legend display)
   let legMean = {
-        x: [0],
+        x: [tolMean],
         name: '<b>Mean:</b> ' + tolMean + ' mm',
-        opacity: 0
+        opacity: 0,
+        hoverinfo: ['skip', 'y']
   }
   let legSTD = {
-        x: [0],
+        x: [tolSTD],
         name: '<b>Standard Deviation:</b> ' + tolSTD + ' mm',
-        opacity: 0
+        opacity: 0,
+        hoverinfo: ['skip', 'y']
   }
 
   let data = [trace, legMean, legSTD];

@@ -1,3 +1,15 @@
+/* Loading Page ------------------------------------------------------------- */
+// Load sidebar
+$.get("sidebar.html", function(sidebarcode){
+    $("#sidebar-placeholder").replaceWith(sidebarcode);
+});
+
+// Load navbar
+$.get("navbar.html", function(navbarcode){
+    $("#navbar-placeholder").replaceWith(navbarcode);
+});
+
+
 /* Document Ready ----------------------------------------------------------- */
 $(document).ready(function() {
 
