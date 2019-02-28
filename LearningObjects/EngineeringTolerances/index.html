@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Browser Tab -->
+    <title>Learning Objects - Design and Manufacture</title>
+    <link rel="icon" href="https://www.imperial.ac.uk/T4Assets/favicon-196x196.png" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/local.css">
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="styles/button.css">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.min.js"></script>
+
+    <!-- Local Scripts -->
+    <script src="js/simulation.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <div id="sidebar-placeholder"></div>
+        
+        <!-- Page Content  -->
+        <div id="content">
+
+            <!-- Navigation Bar -->
+            <div id="navbar-placeholder"></div>
+
+            <div id="navbar-content">
+                <div id="introduction-content">
+                    <h2>Introduction</h2>
+
+                    <figure id="introduction-figure">
+                        <img src="https://picsum.photos/500/400/?random" alt="Single-stage gearbox model" class="shadow">
+                        <figcaption>Figure 1 - Single-Stage Gearbox Model.</figcaption>
+                    </figure>
+
+                    <p class="text-dark font-weight-normal">
+                        Engineering tolerances decide the acceptable range of sizes for a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units of the same component, the variation in dimensions will tend to follow a particular <b>Gaussian Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
+                    </p>
+                    <p class="text-dark font-weight-normal">
+                        The aim of this Learning Object is to demonstrate the importance of engineering tolerance in the manufacture and assembly of products. This exercise will cover the design of a simple single-stage gearbox, made up of an input shaft, output shaft and gear housing (see Figure 1). The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be required to tolerance each of the nominal dimensions. The <b>Simulation</b> page can be used to test the statistical variation in size and to demonstrate the effect of tolerance stackup.
+                    </p>
+                </div>
+
+                <div id="input_shaft-content" style="display:none;">
+                    <h2>Input Shaft</h2>
+
+                    <figure id="input-figure">
+                        <div id="input-container">
+                            <div class="btn-help">
+                                <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#helpModal">
+                                  <i class="fas fa-question"></i>
+                              </button>
+                            </div>
+
+                            <div id="red-in20" class="btn-group-vertical btn-lvl" role="group" aria-label="Vertical button group">
+                                <div id="red-in20plus" class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select upper limit</button>
+                                    <div class="dropdown-menu red-plus">
+                                        <option class="dropdown-item" value="1">+ 1.0 mm</option>
+                                        <option class="dropdown-item" value="2">+ 2.0 mm</option>
+                                        <option class="dropdown-item" value="3">+ 3.0 mm</option>
+                                    </div>
+                                </div>
+                                <div id="red-in20minus" class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select lower limit</button>
+                                    <div class="dropdown-menu red-minus">
+                                        <option class="dropdown-item" value="-1">&#8211 1.0 mm</option>
+                                        <option class="dropdown-item" value="-2">&#8211 2.0 mm</option>
+                                        <option class="dropdown-item" value="-3">&#8211 3.0 mm</option>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="blue-in10" class="btn-group btn-lvl">
+                                <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&Oslash 10 </button>
+                                <div class="dropdown-menu blue">
+                                    <option class="dropdown-item" value="0.50-10">10 mm</option>
+                                    <option class="dropdown-item" value="0.10-10.0">10.0 mm</option>
+                                    <option class="dropdown-item" value="0.02-10.00">10.00 mm</option>
+                                </div>
+                            </div>
+
+                            <img src="drawings/input.png" alt="Input Shaft" class="shadow">
+                            <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
+                        </div>
+                    </figure>
+                </div>
+
+                <div id="output_shaft-content" style="display:none;">
+                    <h2>Output Shaft</h2>
+
+                    <figure id="output-figure">
+                      <img src="drawings/output.png" alt="Output Shaft" class="shadow">
+                      <figcaption>Figure 3 - Output Shaft Engineering Drawing.</figcaption>
+                    </figure>
+                </div>
+
+                <div id="gear_housing-content" style="display:none;">
+                    <h2>Gear Housing</h2>
+
+                    <figure id="housing-figure">
+                      <img src="drawings/case2.png" alt="Gear Housing" class="shadow">
+                      <figcaption>Figure 4 - Gear Housing Engineering Drawing.</figcaption>
+                    </figure>
+                </div>
+
+                <div id="simulation-content" style="display:none;">
+                    <h2>Simulation</h2>
+
+                    <p class="text-dark font-weight-normal">
+                        With each individual gearbox, the position of the inner components along the axial direction will vary based on the accepted tolerance. Starting from the bearing shoulder (label no.), each toleranced dimension along the shaft will contribute its own error based on the theoretical worst-case maximum. This is known as arithmetic tolerance stackup. Tolerance stackup calculations are a useful method of analysing engineering design and can be used to evaluate fits and potential misalignments.
+                    </p>
+
+                    <div id="simulation-container">
+                        <figure id="simulation-figure">
+                            <img src="drawings/assembly.png" alt="Assembly" class="shadow">
+                            <figcaption>Figure 5 - Gearbox Assembly Drawing.</figcaption>
+                        </figure>
+
+                        <div class="card bg-light">
+
+                            <div class="card-body shadow">
+                                <h5 class="card-title">Tolerance Stackup Distribution Model</h5><hr/>
+
+                                <div id="simulation-plot"></div>
+
+                                <div id="simulation-again" style="display:none;">
+                                    <div class="d-flex" >
+                                        <button id="sim-button-again" type="button" class="btn btn-info flex-fill">Run Again</button>
+                                        <button id="sim-button-reset" type="button" class="btn btn-info flex-fill">Reset</button>
+                                    </div>
+                                </div>
+
+                                <div id="simulation-settings">
+                                    <p class="card-text text-dark font-weight-normal">This model simulates the distribution of manufactured gearboxes based on limits you have applied. To test the variation in misalignment, select the dimensions you wish to include, the number of units to simulate and press run.</p><hr/>
+
+                                    <h6 class="card-title">Tolerances to include:</h6>
+
+                                    <div id="tol-check" class="form-check">
+                                        <input class="form-check-input tol-all" type="checkbox" value="0" id="check0" checked="checked">
+                                        <label class="form-check-label" for="check0">Select all</label><br>
+
+                                        <div class="tol-single">
+                                            <input class="form-check-input" type="checkbox" value="0" id="check1" checked="checked">
+                                            <label class="form-check-label" for="check1">Tolerance 1</label><br>
+
+                                            <input class="form-check-input" type="checkbox" value="1" id="check2" checked="checked">
+                                            <label class="form-check-label" for="check2">Tolerance 2</label><br>
+
+                                            <input class="form-check-input" type="checkbox" value="2" id="check3" checked="checked">
+                                            <label class="form-check-label" for="check3">Tolerance 3</label><br>
+
+                                            <input class="form-check-input" type="checkbox" value="3" id="check4" checked="checked">
+                                            <label class="form-check-label" for="check4">Tolerance 4</label><br>
+                                        </div>
+                                    </div><br>
+
+                                    <h6 class="card-title">Number of units:</h6>
+                                    <div class="btn-group btn-group-toggle d-flex" role="group">
+                                        <!-- 10 units is the default setting -->
+                                        <label id="10units" class="btn btn-info flex-fill"> 10
+                                          <input type="radio" name="Units" value="10" checked="checked">
+                                        </label>
+                                        <label id="100units" class="btn btn-outline-info flex-fill"> 100
+                                          <input type="radio" name="Units" value="100">
+                                        </label>
+                                        <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
+                                          <input type="radio" name="Units" value="10000">
+                                        </label>
+                                    </div><hr/>
+
+                                    <span class="tooltip-wrapper btn-block disabled">
+                                        <button id="sim-button" type="button" class="btn btn-block btn-info">Run</button>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Modal Content -->
+            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="helpModalLabel">Help</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-dark font-weight-normal">
+                                To add limits to a dimension, click on a coloured label and select a suitable fit from the list.
+                            </p>
+                            <p class="text-dark font-weight-normal">
+                                <span class="btn btn-outline-danger">Red labels</span> indicate dimensions that must be toleranced according to a set of engineering standards.
+                            </p>
+                            <p class="text-dark font-weight-normal">
+                                <span class="btn btn-outline-primary">Blue labels</span> indicate dimensions that are toleranced based on the number of significant figures.
+                            </p>
+                            <figure>
+                              <img id="modal-figure" src="drawings/tolerances.png" alt="Drawing Tolerances">
+                              <figcaption>Drawing Tolerance Data</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/DOM.js"></script>
+
+</body>
+
+</html>

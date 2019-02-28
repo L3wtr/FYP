@@ -32,6 +32,49 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <div id="sidebar-placeholder"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h2 class="display-5">Learning Objects</h2>
+            </div>
+
+            <ul class="list-unstyled components">
+                <h5> Main </h5>
+                <li>
+                    <a href="#introduction">
+                        <i class="fas fa-home icon-width"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#introduction">
+                        <i class="fas fa-question icon-width"></i>
+                        About
+                    </a>
+                </li>
+
+                <h5> Learning Objects </h5>
+                <li>
+                    <a href="#introduction">
+                        <i class="fas fa-cogs icon-width"></i>
+                        Engineering Tolerances
+                    </a>
+                </li>
+
+                <h5> Contact </h5>
+                <li>
+                    <a href="https://www.imperial.ac.uk/">
+                        <i class="fas fa-pencil-alt icon-width"></i>
+                        Feedback
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.imperial.ac.uk/">
+                        <i class="fas fa-bug icon-width"></i>
+                        Report A Bug
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <!-- Page Content  -->
         <div id="content">
@@ -39,157 +82,339 @@
             <!-- Navigation Bar -->
             <div id="navbar-placeholder"></div>
 
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand navbar-light bg-light">
+
+                <h1 class="display-5">Engineering Tolerances</h1>
+
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item" id="introduction-tab">
+                                <a class="nav-link" href="#introduction">Introduction</a>
+                            </li>
+                            <li class="nav-item" id="shaft-tab">
+                                <a class="nav-link" href="#shaft">Shaft and Spacer Drawings</a>
+                            </li>
+                            <li class="nav-item" id="housing-tab">
+                                <a class="nav-link" href="#housing">Housing Drawings</a>
+                            </li>
+                            <li class="nav-item" id="simulation-tab">
+                                <a class="nav-link" href="#simulation">Simulation</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
             <div id="navbar-content">
                 <div id="introduction-content">
-                    <h2>Introduction</h2>
-
                     <figure id="introduction-figure">
                         <img src="https://picsum.photos/500/400/?random" alt="Single-stage gearbox model" class="shadow">
                         <figcaption>Figure 1 - Single-Stage Gearbox Model.</figcaption>
                     </figure>
 
                     <p class="text-dark font-weight-normal">
-                        Engineering tolerances decide the acceptable range of sizes for a manufactured part and are defined by a set of upper and lower limits. When manufacturing multiple units of the same component, the variation in dimensions will tend to follow a particular <b>Gaussian Distribution</b>, where the tighter the tolerance, the narrower the range of variation and vice versa.
+                        The purpose of an engineering drawing is to communicate the ideas of an engineer, from the design office to the workshop. A good drawing must include all of the relevant information and represent each detail clearly and effectively. When designing a part for manufacture, it is important to consider how each detail is labelled and toleranced, and the effect this might have on the manufacture and assembly process.
                     </p>
                     <p class="text-dark font-weight-normal">
-                        The aim of this Learning Object is to demonstrate the importance of engineering tolerance in the manufacture and assembly of products. This exercise will cover the design of a simple single-stage gearbox, made up of an input shaft, output shaft and gear housing (see Figure 1). The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be required to tolerance each of the nominal dimensions. The <b>Simulation</b> page can be used to test the statistical variation in size and to demonstrate the effect of tolerance stackup.
+                        The aim of this Learning Object is to demonstrate the importance of engineering tolerances in design and manufacture. This exercise will cover the design of a simple mechanism, made up of two shafts, two housings and a fixed plate (see Figure 1). In this example, one half of the mechanism is designed using different types of constraints to help minimise misalignment of the gears. The other half is an example of a poorly designed bearing and shaft arrangement that is susceptible to significant misalignment.
+                    </p>
+                    <p class="text-dark font-weight-normal">
+                        The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be presented with examples of good and bad engineering design. The simulation page can be used to demonstrate the effect of tolerance stackup by testing the statistical variation in size for the manufactured parts.
                     </p>
                 </div>
 
-                <div id="input_shaft-content" style="display:none;">
-                    <h2>Input Shaft</h2>
+                <div id="shaft-content" style="display:none;">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <span class="nav-link active" href="#well-shaft-figure">Well Designed Shaft</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link" href="#poor-shaft-figure">Poorly Designed Shaft</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link" href="#spacer-figure">Spacer</span>
+                        </li>
+                    </ul>
 
-                    <figure id="input-figure">
-                        <div id="input-container">
-                            <div class="btn-help">
-                                <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#helpModal">
-                                  <i class="fas fa-question"></i>
-                              </button>
-                            </div>
-
-                            <div id="red-in20" class="btn-group-vertical btn-lvl" role="group" aria-label="Vertical button group">
-                                <div id="red-in20plus" class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select upper limit</button>
-                                    <div class="dropdown-menu red-plus">
-                                        <option class="dropdown-item" value="1">+ 1.0 mm</option>
-                                        <option class="dropdown-item" value="2">+ 2.0 mm</option>
-                                        <option class="dropdown-item" value="3">+ 3.0 mm</option>
-                                    </div>
+                    <div class="card shadow custom-card-tabs">
+                        <div class="card-body bg-light tab-content">
+                            <figure id="well-shaft-figure" class="tab-pane active">
+                                <div class="btn-settings">
+                                    <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#settingsModal">
+                                        <span class="fas fa-cog"></span>
+                                    </button>
                                 </div>
-                                <div id="red-in20minus" class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select lower limit</button>
-                                    <div class="dropdown-menu red-minus">
-                                        <option class="dropdown-item" value="-1">&#8211 1.0 mm</option>
-                                        <option class="dropdown-item" value="-2">&#8211 2.0 mm</option>
-                                        <option class="dropdown-item" value="-3">&#8211 3.0 mm</option>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div id="blue-in10" class="btn-group btn-lvl">
-                                <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&Oslash 10 </button>
-                                <div class="dropdown-menu blue">
-                                    <option class="dropdown-item" value="0.50-10">10 mm</option>
-                                    <option class="dropdown-item" value="0.10-10.0">10.0 mm</option>
-                                    <option class="dropdown-item" value="0.02-10.00">10.00 mm</option>
+                                <div class="btn-group btn-group-toggle btn-group-datum" role="group">
+                                    <!-- A is the default setting -->
+                                    <label id="datum-wa" class="btn btn-info btn-tear">
+                                        <span class="btn-tear-text font-weight-bold">A</span>
+                                        <input type="radio" name="Datum-W" value="a" checked="checked">
+                                    </label>
+                                    <label id="datum-wb" class="btn btn-outline-info btn-tear">
+                                        <span class="btn-tear-text font-weight-bold">B</span>
+                                        <input type="radio" name="Datum-W" value="b">
+                                    </label>
                                 </div>
-                            </div>
 
-                            <img src="drawings/input.png" alt="Input Shaft" class="shadow">
-                            <figcaption>Figure 2 - Input Shaft Engineering Drawing.</figcaption>
+                                <img src="LearningObjects/EngineeringTolerances/drawings/all_shaft_wa.png" alt="Housing Drawings" class="shadow">
+                                <figcaption>Figure 2a - Shaft Engineering Drawing (Well Designed).</figcaption>
+                            </figure>
+
+                            <figure id="poor-shaft-figure" class="tab-pane">
+                                <div class="btn-settings">
+                                    <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#settingsModal">
+                                        <span class="fas fa-cog"></span>
+                                    </button>
+                                </div>
+
+                                <div class="btn-group btn-group-toggle btn-group-datum" role="group">
+                                    <!-- A is the default setting -->
+                                    <label id="datum-pa" class="btn btn-info btn-tear">
+                                        <span class="btn-tear-text font-weight-bold">A</span>
+                                        <input type="radio" name="Datum-P" value="a" checked="checked">
+                                    </label>
+                                    <label id="datum-pb" class="btn btn-outline-info btn-tear">
+                                        <span class="btn-tear-text font-weight-bold">B</span>
+                                        <input type="radio" name="Datum-P" value="b">
+                                    </label>
+                                </div>
+
+                                <img src="LearningObjects/EngineeringTolerances/drawings/all_shaft_pa.png" alt="Housing Drawings" class="shadow">
+                                <figcaption>Figure 2b - Shaft Engineering Drawing (Poorly Designed).</figcaption>
+                            </figure>
+
+                            <figure id="spacer-figure" class="tab-pane">
+                                <div class="btn-settings">
+                                    <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#settingsModal">
+                                        <span class="fas fa-cog"></span>
+                                    </button>
+                                </div>
+                                <img src="LearningObjects/EngineeringTolerances/drawings/all_spacer.png" alt="Housing Drawings" class="shadow">
+                                <figcaption>Figure 2c - Spacer Engineering Drawing.</figcaption>
+                            </figure>
                         </div>
-                    </figure>
+                    </div>
+
+                    <div class="side-content">
+                        <p class="text-dark font-weight-normal">
+                            The example drawings provided have been designed to demonstrate how the form of a shaft can contribute to the tolerance stackup. The <b>well designed shaft</b> uses various constraint types to locate the bearings and fix the spur gear, including a <b>spacer</b> that seperates the two. The <b>poorly designed shaft</b> only uses external circlips that are referenced from a datum point.
+                        </p>
+
+                        <div class="alert alert-primary alert-white">
+                            <div class="icon">
+                                <span class="fas fa-info-circle"></span>
+                            </div>
+                             To toggle which types of stackup dimension are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
+                        </div>
+
+                        <h4>Things to try</h4>
+                        <ul>
+                            <li>Try changing the datum reference point and see how it affects the axial misalignment.
+                        </ul>
+                    </div>
                 </div>
 
-                <div id="output_shaft-content" style="display:none;">
-                    <h2>Output Shaft</h2>
+                <div id="housing-content" style="display:none;">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <span class="nav-link active" href="#well-housing-figure">Well Designed Housing</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link" href="#poor-housing-figure">Poorly Designed Housing</span>
+                        </li>
+                    </ul>
 
-                    <figure id="output-figure">
-                      <img src="drawings/output.png" alt="Output Shaft" class="shadow">
-                      <figcaption>Figure 3 - Output Shaft Engineering Drawing.</figcaption>
-                    </figure>
-                </div>
+                    <div class="card shadow custom-card-tabs">
+                        <div class="card-body bg-light tab-content">
+                            <figure id="well-housing-figure" class="tab-pane active">
 
-                <div id="gear_housing-content" style="display:none;">
-                    <h2>Gear Housing</h2>
+                                <div class="btn-settings">
+                                    <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#settingsModal">
+                                        <span class="fas fa-cog"></span>
+                                    </button>
+                                </div>
 
-                    <figure id="housing-figure">
-                      <img src="drawings/case2.png" alt="Gear Housing" class="shadow">
-                      <figcaption>Figure 4 - Gear Housing Engineering Drawing.</figcaption>
-                    </figure>
+                                <img src="LearningObjects/EngineeringTolerances/drawings/all_housing_w.png" alt="Housing Drawings" class="shadow">
+                                <figcaption>Figure 3a - Bearing Housing Engineering Drawing (Well Designed).</figcaption>
+                            </figure>
+
+                            <figure id="poor-housing-figure" class="tab-pane">
+
+                                <div class="btn-settings">
+                                    <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#settingsModal">
+                                        <span class="fas fa-cog"></span>
+                                    </button>
+                                </div>
+
+                                <img src="LearningObjects/EngineeringTolerances/drawings/all_housing_p.png" alt="Housing Drawings" class="shadow">
+                                <figcaption>Figure 3b - Bearing Housing Engineering Drawing (Poorly Designed).</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="side-content">
+                        <p class="text-dark font-weight-normal">
+                            The design of the bearing housings also contribute to the tolerance stackup in both the axial and radial directions. The <b>well designed housing</b> uses a combination of shoulders and an endcap to locate the fixed bearing and the plate. The <b>poorly designed housing</b> uses only internal circlips to locate the bearing, and bolts to locate the plate.
+                        </p>
+
+                        <div class="alert alert-primary alert-white">
+                            <div class="icon">
+                                <span class="fas fa-info-circle"></span>
+                            </div>
+                             To toggle which types of stackup dimensions are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
+                        </div>
+
+                        <h4>Things to try</h4>
+                        <ul>
+                            <li>Try comparing the radial stackup contributions for the well designed and poorly designed housing.
+                        </ul>  
+                    </div>
                 </div>
 
                 <div id="simulation-content" style="display:none;">
-                    <h2>Simulation</h2>
-
-                    <p class="text-dark font-weight-normal">
-                        With each individual gearbox, the position of the inner components along the axial direction will vary based on the accepted tolerance. Starting from the bearing shoulder (label no.), each toleranced dimension along the shaft will contribute its own error based on the theoretical worst-case maximum. This is known as arithmetic tolerance stackup. Tolerance stackup calculations are a useful method of analysing engineering design and can be used to evaluate fits and potential misalignments.
+                    <p class="text-dark font-weight-normal" style="padding-bottom: 10px;">
+                        With each individual example, the position of the components in the assembly will vary based on the accepted tolerance. Certain toleranced dimensions will contribute their own error based on the variation in size. Tolerance stackup calculations are a useful method of analysing engineering design and can be used to evaluate any potential misalignments.
                     </p>
 
                     <div id="simulation-container">
                         <figure id="simulation-figure">
-                            <img src="drawings/assembly.png" alt="Assembly" class="shadow">
-                            <figcaption>Figure 5 - Gearbox Assembly Drawing.</figcaption>
+                            <img src="LearningObjects/EngineeringTolerances/drawings/assembly.png" alt="Assembly" class="shadow">
+                            <figcaption>Figure 4 - Example Mechanism Assembly Drawing.</figcaption>
                         </figure>
 
-                        <div class="card bg-light">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <span class="nav-link active" href="#distribution-model">Distribution Model</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link" href="#stackup-contributions">Stackup Contributions</span>
+                            </li>
+                        </ul>
 
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Tolerance Stackup Distribution Model</h5><hr/>
+                        <div class="card shadow">
+                            <div class="card-body bg-light tab-content">
 
-                                <div id="simulation-plot"></div>
+                                <div id="distribution-model" class="tab-pane active">
 
-                                <div id="simulation-again" style="display:none;">
-                                    <div class="d-flex" >
-                                        <button id="sim-button-again" type="button" class="btn btn-info flex-fill">Run Again</button>
-                                        <button id="sim-button-reset" type="button" class="btn btn-info flex-fill">Reset</button>
+                                    <div id="simulation-plot"></div>
+
+                                    <div id="simulation-again" style="display:none;">
+                                        <div id="data-table">
+                                            <table class="table text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        <th scope="col">Mean (&mu;m)</th>
+                                                        <th scope="col">Standard Deviation (&mu;m)</th>
+                                                        <th scope="col">Rejected Units</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="data-row1">
+                                                        <th>Well Designed</th>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr  id="data-row2">
+                                                        <th>Poorly Designed</th>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="d-flex" >
+                                            <button id="sim-button-again" type="button" class="btn btn-info flex-fill font-weight-bold">Run Again</button>
+                                            <button id="sim-button-reset" type="button" class="btn btn-info flex-fill font-weight-bold">Reset</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="simulation-settings">
+                                        <p class="card-text text-dark font-weight-normal">
+                                            This model simulates the stackup distribution based on limits given in the engineering drawings. To test the variation in misalignment, select a direction, the number of units you wish to simulate and press run.
+                                        </p><hr/>
+
+                                        <h6 class="card-title">Datums selected:</h6>
+                                        <ul>
+                                            <li>Well Designed Shaft - <span id="well-datum-text" class="font-weight-bold">Datum A</span>.</li>
+                                            <li>Poorly Designed Shaft - <span id="poor-datum-text" class="font-weight-bold">Datum A</span>.</li>
+                                        </ul>
+
+                                        <h6 class="card-title">Quality control:</h6>
+                                        <ul>
+                                            <li>Reject units with a total axial misalignment greater than <b>&plusmn; 0.1mm</b>.</li>
+                                            <li>Reject units with a total radial misalignment greater than <b>&plusmn; 0.05mm</b>.</li>
+                                        </ul><hr>
+
+                                        <h6 class="card-title">Misalignment direction:</h6>
+                                        <div class="btn-group btn-group-toggle d-flex" role="group">
+                                            <!-- Axial is the default setting -->
+                                            <label id="axial-sim" class="btn btn-info flex-fill"> Axial
+                                                <input type="radio" name="Direction" value="axial" checked="checked">
+                                            </label>
+                                            <label id="radial-sim" class="btn btn-outline-info flex-fill"> Radial
+                                                <input type="radio" name="Direction" value="radial">
+                                            </label>
+                                        </div><br>
+
+                                        <h6 class="card-title">Number of units:</h6>
+                                        <div class="btn-group btn-group-toggle d-flex" role="group">
+                                            <!-- 100 units is the default setting -->
+                                            <label id="100units" class="btn btn-info flex-fill"> 100
+                                                <input type="radio" name="Units" value="100" checked="checked">
+                                            </label>
+                                            <label id="1000units" class="btn btn-outline-info flex-fill"> 1,000
+                                                <input type="radio" name="Units" value="1000">
+                                            </label>
+                                            <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
+                                                <input type="radio" name="Units" value="10000">
+                                            </label>
+                                        </div><hr/>
+
+                                        <span class="tooltip-wrapper btn-block disabled">
+                                            <button id="sim-button" type="button" class="btn btn-block btn-info font-weight-bold">Run</button>
+                                        </span>
                                     </div>
                                 </div>
 
-                                <div id="simulation-settings">
-                                    <p class="card-text text-dark font-weight-normal">This model simulates the distribution of manufactured gearboxes based on limits you have applied. To test the variation in misalignment, select the dimensions you wish to include, the number of units to simulate and press run.</p><hr/>
+                                <div id="stackup-contributions" class="tab-pane">
+                                    <p class="card-text text-dark font-weight-normal">
+                                        The table below outlines the main contributors to the tolerance stackup, divided into areas are included in this simulation, not included or contribute to the oblique misalignment (<i>also not included</i>). You can hover over the different elements to highlight each area that contribute to
+                                    </p>
 
-                                    <h6 class="card-title">Tolerances to include:</h6>
-
-                                    <div id="tol-check" class="form-check">
-                                        <input class="form-check-input tol-all" type="checkbox" value="0" id="check0" checked="checked">
-                                        <label class="form-check-label" for="check0">Select all</label><br>
-
-                                        <div class="tol-single">
-                                            <input class="form-check-input" type="checkbox" value="0" id="check1" checked="checked">
-                                            <label class="form-check-label" for="check1">Tolerance 1</label><br>
-
-                                            <input class="form-check-input" type="checkbox" value="1" id="check2" checked="checked">
-                                            <label class="form-check-label" for="check2">Tolerance 2</label><br>
-
-                                            <input class="form-check-input" type="checkbox" value="2" id="check3" checked="checked">
-                                            <label class="form-check-label" for="check3">Tolerance 3</label><br>
-
-                                            <input class="form-check-input" type="checkbox" value="3" id="check4" checked="checked">
-                                            <label class="form-check-label" for="check4">Tolerance 4</label><br>
-                                        </div>
-                                    </div><br>
-
-                                    <h6 class="card-title">Number of units:</h6>
-                                    <div class="btn-group btn-group-toggle d-flex" role="group">
-                                        <!-- 10 units is the default setting -->
-                                        <label id="10units" class="btn btn-info flex-fill"> 10
-                                          <input type="radio" name="Units" value="10" checked="checked">
-                                        </label>
-                                        <label id="100units" class="btn btn-outline-info flex-fill"> 100
-                                          <input type="radio" name="Units" value="100">
-                                        </label>
-                                        <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
-                                          <input type="radio" name="Units" value="10000">
-                                        </label>
-                                    </div><hr/>
-
-                                    <span class="tooltip-wrapper btn-block disabled">
-                                        <button id="sim-button" type="button" class="btn btn-block btn-info">Run</button>
-                                    </span>
+                                    <table class="table text-center">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Axial</th>
+                                                <th scope="col">Radial</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="btn btn-light">Included</td>
+                                                <td class="btn btn-light">Included</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="btn btn-light">Not Included</td>
+                                                <td class="btn btn-light">Not Included</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="btn btn-light">Oblique</td>
+                                                <td class="btn btn-light">Oblique</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
 
                             </div>
+
                         </div>
 
                     </div>
@@ -199,29 +424,40 @@
             </div>
 
             <!-- Modal Content -->
-            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+            <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="helpModalLabel">Help</h3>
+                            <h3 class="modal-title" id="settingsModalLabel">Settings</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <p class="text-dark font-weight-normal">
-                                To add limits to a dimension, click on a coloured label and select a suitable fit from the list.
+                                To change which dimensions are displayed on the drawing, please select from the options below:
                             </p>
-                            <p class="text-dark font-weight-normal">
-                                <span class="btn btn-outline-danger">Red labels</span> indicate dimensions that must be toleranced according to a set of engineering standards.
-                            </p>
-                            <p class="text-dark font-weight-normal">
-                                <span class="btn btn-outline-primary">Blue labels</span> indicate dimensions that are toleranced based on the number of significant figures.
-                            </p>
-                            <figure>
-                              <img id="modal-figure" src="drawings/tolerances.png" alt="Drawing Tolerances">
-                              <figcaption>Drawing Tolerance Data</figcaption>
-                            </figure>
+
+                            <h6 class="card-title">Toggle display:</h6>
+                            <div class="btn-group btn-group-toggle d-flex" role="group">
+                                <!-- All is the default setting -->
+                                <label id="all-drawing" class="btn btn-info flex-fill"> All
+                                    <input type="radio" name="ToggleDisplay" value="all" checked="checked">
+                                </label>
+                                <label id="axial-drawing" class="btn btn-outline-info flex-fill"> Axial
+                                    <input type="radio" name="ToggleDisplay" value="axi">
+                                </label>
+                                <label id="radial-drawing" class="btn btn-outline-info flex-fill"> Radial
+                                    <input type="radio" name="ToggleDisplay" value="rad">
+                                </label>
+                            </div> <br>
+
+                            <ul>
+                              <li><b>All</b> - All dimensions relevant to manufacture are shown.</li>
+                              <li><b>Axial</b> - Only the dimensions that contribute to the axial stackup are shown.</li>
+                              <li><b>Radial</b> - Only the dimensions that contribute to the radial stackup are shown.</li>
+                            </ul>
+
                         </div>
                     </div>
                 </div>

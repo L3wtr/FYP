@@ -11,11 +11,16 @@ body {
 
 figure {
     position: relative;
+    margin: 0px 0px 0px 0px;
 }
 
 figure figcaption {
     padding-top: 10px;
     text-align: center;
+}
+
+.side-content {
+    overflow: auto;
 }
 
 .display-5 {
@@ -27,6 +32,10 @@ figure figcaption {
 
 #content .display-5 {
     white-space: nowrap;
+}
+
+#content h2 {
+  margin-bottom: 25px;
 }
 
 .navbar-nav li {
@@ -41,7 +50,21 @@ figure figcaption {
     background-image: none !important;
 }
 
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color:#294866;
+}
+
 /* Tab Content -------------------------------------------------------------- */
+.custom-card-tabs {
+    /*z-index: -1;*/
+    margin-top: -1px;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid #dee2e6; */
+}
+
 #introduction-figure {
     float: right;
     margin-left: 20px;
@@ -49,14 +72,14 @@ figure figcaption {
     min-height: 400px;
 }
 
-#introduction-figure img, #input-figure img,
-  #output-figure img, #housing-figure img, #simulation-figure img{
+#introduction-figure img, #well-shaft-figure img, #spacer-figure img, #poor-shaft-figure img,
+#well-housing-figure img, #poor-housing-figure img, #simulation-figure img{
     border-radius: 2px;
 }
 
-#input-figure, #output-figure, #housing-figure {
+#well-shaft-figure, #spacer-figure, #poor-shaft-figure, #well-housing-figure, #poor-housing-figure {
     float: left;
-    margin: 10px 20px 0px 0px;
+    margin: 0px;
 }
 
 #simulation-figure {
@@ -64,17 +87,23 @@ figure figcaption {
     margin-right: 30px;
 }
 
-#input-figure img, #output-figure img, #housing-figure img {
-    max-height: 75vh;
+#shaft-content .card, #housing-content .card {
+    max-width: 54vw;
+    float: left;
+    margin-right: 30px
+}
+
+#well-shaft-figure img, #spacer-figure img, #poor-shaft-figure img, #well-housing-figure img, #poor-housing-figure img {
+    width: 100%;
 }
 
 #simulation-figure img {
     display: inline-block;
-    max-height: 64vh;
+    max-height: 35.8vw;
 }
 
 #simulation-container .card {
-    min-height: 64vh;
+    min-height: calc(35.8vw - 40px);
 }
 
 #simulation-plot {
@@ -83,13 +112,6 @@ figure figcaption {
 
 #sim-button {
     float: left;
-}
-
-#modal-figure {
-    display: block;
-    margin: auto;
-    max-width: 400px;
-    padding-top: 10px;
 }
 
 .svg-container {
@@ -101,10 +123,6 @@ figure figcaption {
 }
 
 /* List Style --------------------------------------------------------------- */
-/*.list-group-item {
-    background-color: #fafafa;
-}*/
-
 ul.list-group:after {
   clear: both;
   display: block;

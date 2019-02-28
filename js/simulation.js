@@ -9,80 +9,99 @@ function randUni(upper, lower, n) {
 }
 
 /* Randomly populate an array using a normal uniform distribution up to a limit */
-function randNorm(limit, n) {
+function randNorm(lower, upper, n) {
   let popMat, popNorm, popArr;
   let degree = 6;
+  let limit = (upper - lower)/2;
+  let shift = lower + limit;
 
   // Approxiate mate a normal distirbution from a uniform one up to the degree, d
   // [(d * U(0,1) - d/2) / (d/2)] * limit
   popMat = math.random([n, degree]);
-  popNorm = math.multiply(math.divide(math.subtract(math.sum(popMat, 1), degree/2), degree/2), limit);
+  popNorm = math.add(math.multiply(math.divide(math.subtract(math.sum(popMat, 1), degree/2), degree/2), limit), shift);
 
-  popArr = popNorm.flat(); // Flattens array
+  popArr = popNorm.flat(); // Flattens matrix
 
   return popArr;
 }
 
 /* Stackup simulation method */
 function stackup(units) {
+  let tolWell, tolPoor;
+  let tolWellMean, tolWellSTD, tolPoorMean, tolPoorSTD;
 
-  // JQuery fetching tolerance limits
-  let limits = [0.5, 0.5, 0.5, 0.5];
+  var direction = $('input[name=Direction]:checked').val();
+  var datumVal = $('input[name=Datum-P]:checked').val();
 
-  // Assign limits based on checkbox selection
-  let tolIndex = $(".tol-single input:checkbox:not(:checked)").map(function() {
-      return $(this).val();
-    }).get();
+  switch (direction) {
+    case 'axial':
+      // Well designed tolerance contribution (unaffected by datum)
+      tolWell = math.add(randNorm(-0.1, 0.1, units), randNorm(-0.1, 0.1, units), randNorm(-0.1, 0.1, units));
 
-  for (let i=0; i<tolIndex.length; i++) {
-    limits[i] = 0;
+      // Poorly designed tolerance contribution (directed by datum)
+      tolPoor = math.add(randNorm(-0.1, 0.1, units), randNorm(-0.1, 0.1, units), randNorm(-0.1, 0.1, units),  // Locating grooves
+                          randNorm(-0.06, 0, units), randNorm(-0.06, 0, units), randNorm(-0.06, 0, units),    // Internal circlips
+                            randNorm(0, 0.1, units), randNorm(0, 0.1, units), randNorm(0, 0.1, units),        // Internal groove size
+                              randNorm(-0.06, 0, units), randNorm(-0.06, 0, units),         // External circlips
+                                randNorm(0, 0.1, units), randNorm(0, 0.1, units),           // External groove size
+                                  randNorm(-0.1, 0.1, units), randNorm(-0.1, 0.1, units));  // Housing lip
+
+      // Add additional tolerances for datum A
+      if (datumVal === 'a' ) {
+        tolPoor = math.add(tolPoor, randNorm(-0.1, 0.1, units), randNorm(-0.06, 0, units), randNorm(0, 0.1, units)); // Additional circlip and grooves
+      }
+
+      // Update table with statistics
+      tableData('data-row1', tolWell, 0.1);
+      tableData('data-row2', tolPoor, 0.1);
+    break
+
+    case 'radial':
+      // Well designed tolerance contribution
+      tolWell = math.add(randNorm(-0.004, 0.009, units),  // Shaft contribution
+                          randNorm(-0.1, 0.1, units), randNorm(-0.006, 0.010, units));  // Housing contribution
+
+      // Poorly designed tolerance contribution
+      tolPoor = math.add(randNorm(-0.004, 0.009, units),  // Shaft contribution
+                          randNorm(-0.1, 0.1, units), randNorm(-0.006, 0.010, units), // Housing contribution
+                            randNorm(-0.029, 0.004, units), randNorm(-0.029, 0.004, units));  // Bore contribution
+
+      // Update table with statistics
+      tableData('data-row1', tolWell, 0.05);
+      tableData('data-row2', tolPoor, 0.05);
+    break
   }
-
-  // Summing arrays representing stackup
-  let tol = math.add(randNorm(limits[0], units), randNorm(limits[1], units),
-                      randNorm(limits[2], units), randNorm(limits[3], units));
-
-  // Statistics Calculation (rounded to 5 dp)
-  let tolMean = math.round(math.mean(tol), 5);
-  let tolSTD = math.round(math.std(tol), 5);
 
   /* Histogram plot */
   // Simulated data
-  let trace = {
-        x: tol,
+  let traceWell = {
+        x: tolWell,
         type: 'histogram',
-        name: 'Units',
+        name: 'Well Designed',
         marker: {
-          color: 'rgba(41, 72, 102, 1)'
+          color: 'rgba(41, 72, 102, 0.8)'
         },
-        showlegend: false
       };
 
-  // Statistics (for legend display)
-  let legMean = {
-        x: [tolMean],
-        name: '<b>Mean:</b> ' + tolMean + ' mm',
-        opacity: 0,
-        hoverinfo: ['skip', 'y']
-  }
-  let legSTD = {
-        x: [tolSTD],
-        name: '<b>Standard Deviation:</b> ' + tolSTD + ' mm',
-        opacity: 0,
-        hoverinfo: ['skip', 'y']
-  }
+  let tracePoor = {
+        x: tolPoor,
+        type: 'histogram',
+        name: 'Poorly Designed',
+        marker: {
+          color: 'rgba(247, 151, 95, 0.8)'
+        },
+      };
 
-  let data = [trace, legMean, legSTD];
+  let data = [traceWell, tracePoor];
 
   let layout = {
     //autosize: true,
-    /*
     title: {
       text: '<b>Stackup Distribution</b>',
         font: {
           size: 16,
         }
-    },*/
+    },
     xaxis: {
       title: '<b>Total Misalignment (mm)</b>',
       showgrid: false,
@@ -103,8 +122,8 @@ function stackup(units) {
 
     showlegend: true,
     legend: {
-      x: -0.05,
-      y: 1.15
+      x: 0.7,
+      y: 0.95
     },
 
     plot_bgcolor: 'rgba(0,0,0,0)',
@@ -112,4 +131,22 @@ function stackup(units) {
   };
 
   Plotly.newPlot('simulation-plot', data, layout,  {displayModeBar: false});
+}
+
+/* Calculate data and update table */
+function tableData(id, tolData, limit) {
+  let tolMean, tolSTD, tolUnits, rejected;
+
+  // Mean and standard deviation in um (2dp)
+  tolMean = math.round(math.mean(tolData) * 1000, 2);
+  tolSTD = math.round(math.std(tolData) * 1000, 2);
+
+  // Calculate number of rejected units
+  rejLarger = math.larger(tolData, limit).filter(Boolean).length;
+  rejSmaller = math.smaller(tolData, -limit).filter(Boolean).length;
+  rejPercent = math.round(((rejLarger + rejSmaller) / tolData.length) * 100, 2);
+
+  $("#" + id).find("td").eq(0).html(tolMean);
+  $("#" + id).find("td").eq(1).html(tolSTD);
+  $("#" + id).find("td").eq(2).html(rejPercent + " %" );
 }
