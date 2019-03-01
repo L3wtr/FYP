@@ -13,6 +13,10 @@
   max-width: 650px;
 }
 
+.modal-content {
+    padding: 10px;
+}
+
 /* Settings button type */
 .btn-settings {
     right: 0px;

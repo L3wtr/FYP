@@ -45,7 +45,7 @@
                         Home
                     </a>
                 </li>
-                <li>
+                <li hidden>
                     <a href="#introduction">
                         <i class="fas fa-question icon-width"></i>
                         About
@@ -62,13 +62,13 @@
 
                 <h5> Contact </h5>
                 <li>
-                    <a href="https://www.imperial.ac.uk/">
+                    <a href="https://goo.gl/forms/h5ZAzeTs7GRgxXnN2" target="_blank">
                         <i class="fas fa-pencil-alt icon-width"></i>
                         Feedback
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.imperial.ac.uk/">
+                    <a href="https://goo.gl/forms/Lbt2Biw34OHAmTOO2" target="_blank">
                         <i class="fas fa-bug icon-width"></i>
                         Report A Bug
                     </a>
@@ -111,18 +111,18 @@
             <div id="navbar-content">
                 <div id="introduction-content">
                     <figure id="introduction-figure">
-                        <img src="https://picsum.photos/500/400/?random" alt="Single-stage gearbox model" class="shadow">
-                        <figcaption>Figure 1 - Single-Stage Gearbox Model.</figcaption>
+                        <img src="LearningObjects/EngineeringTolerances/figures/render.png" alt="Single-stage gearbox model" class="shadow">
+                        <figcaption>Figure 1 - Plate mounted gear mechanism.</figcaption>
                     </figure>
 
                     <p class="text-dark font-weight-normal">
-                        The purpose of an engineering drawing is to communicate the ideas of an engineer, from the design office to the workshop. A good drawing must include all of the relevant information and represent each detail clearly and effectively. When designing a part for manufacture, it is important to consider how each detail is labelled and toleranced, and the effect this might have on the manufacture and assembly process.
+                        The aim of this Learning Object is to demonstrate how your design decisions can influence the final outcome of a manufactured product. When manufacturing parts for an assembly, the position of each component can vary according to an accepted tolerance. Certain dimensions will contribute their own error based on the variation in size between these tolerance limits. In a poorly designed component, these errors can lead to significant misalignments and poor fits in a process known as <b>tolerance stackup</b>.
                     </p>
                     <p class="text-dark font-weight-normal">
-                        The aim of this Learning Object is to demonstrate the importance of engineering tolerances in design and manufacture. This exercise will cover the design of a simple mechanism, made up of two shafts, two housings and a fixed plate (see Figure 1). In this example, one half of the mechanism is designed using different types of constraints to help minimise misalignment of the gears. The other half is an example of a poorly designed bearing and shaft arrangement that is susceptible to significant misalignment.
+                        This exercise will cover the design of a simple mechanism, made up of two shafts, two housings and a fixed plate (see <span style="white-space: nowrap">Figure 1</span>). In this example, one side of the mechanism (<span class="font-weight-bold" style="color:rgb(41, 72, 102)">blue</span>) is designed using different types of constraints to reduce tolerance stackup and minimise misalignment of the gears. The other side (<span class="font-weight-bold" style="color:rgb(247, 151, 95)">orange</span>) is an example of a poorly designed assembly that experiences significant tolerance stackup and is susceptible to severe misalignment.
                     </p>
                     <p class="text-dark font-weight-normal">
-                        The tabs in the top right corner will direct you to the relevant schematic drawings, where you will be presented with examples of good and bad engineering design. The simulation page can be used to demonstrate the effect of tolerance stackup by testing the statistical variation in size for the manufactured parts.
+                        The tabs in the top right corner will direct you to the relevant engineering drawings, where you will be presented with examples of good and bad engineering design. The <b>simulation</b> page can be used to demonstrate the effect of tolerance stackup by testing the statistical variation in size for each of the manufactured parts.
                     </p>
                 </div>
 
@@ -201,7 +201,7 @@
 
                     <div class="side-content">
                         <p class="text-dark font-weight-normal">
-                            The example drawings provided have been designed to demonstrate how the form of a shaft can contribute to the tolerance stackup. The <b>well designed shaft</b> uses various constraint types to locate the bearings and fix the spur gear, including a <b>spacer</b> that seperates the two. The <b>poorly designed shaft</b> only uses external circlips that are referenced from a datum point.
+                            The example drawings provided demonstrate how the form of a shaft can contribute to the tolerance stackup. The <b>well designed shaft</b> uses various constraint types to locate the bearings and fix the spur gear, including a <b>spacer</b> that seperates the two. The <b>poorly designed shaft</b> only uses external circlips that are referenced from a datum point.
                         </p>
 
                         <div class="alert alert-primary alert-white">
@@ -213,7 +213,7 @@
 
                         <h4>Things to try</h4>
                         <ul>
-                            <li>Try changing the datum reference point and see how it affects the axial misalignment.
+                            <li>Try changing the datum reference point to see how it affects the axial misalignment.
                         </ul>
                     </div>
                 </div>
@@ -270,14 +270,14 @@
 
                         <h4>Things to try</h4>
                         <ul>
-                            <li>Try comparing the radial stackup contributions for the well designed and poorly designed housing.
-                        </ul>  
+                            <li>Try comparing the radial stackup contributions for the well designed and poorly designed housings.
+                        </ul>
                     </div>
                 </div>
 
                 <div id="simulation-content" style="display:none;">
                     <p class="text-dark font-weight-normal" style="padding-bottom: 10px;">
-                        With each individual example, the position of the components in the assembly will vary based on the accepted tolerance. Certain toleranced dimensions will contribute their own error based on the variation in size. Tolerance stackup calculations are a useful method of analysing engineering design and can be used to evaluate any potential misalignments.
+                        When manufacturing multiple components with toleranced dimensions, the variation in part size will tend to follow a <b>Gaussian Distribution</b>, where the tighter the tolerance range, the narrower the distribution and vice versa. As more and more tolerances begin to stackup, the variation in size becomes more prominent, which can lead to unwanted misalignments.
                     </p>
 
                     <div id="simulation-container">
@@ -290,7 +290,7 @@
                             <li class="nav-item">
                                 <span class="nav-link active" href="#distribution-model">Distribution Model</span>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" hidden>
                                 <span class="nav-link" href="#stackup-contributions">Stackup Contributions</span>
                             </li>
                         </ul>
@@ -384,9 +384,9 @@
                                     </div>
                                 </div>
 
-                                <div id="stackup-contributions" class="tab-pane">
+                                <div id="stackup-contributions" class="tab-pane" hidden>
                                     <p class="card-text text-dark font-weight-normal">
-                                        The table below outlines the main contributors to the tolerance stackup, divided into areas are included in this simulation, not included or contribute to the oblique misalignment (<i>also not included</i>). You can hover over the different elements to highlight each area that contribute to
+                                        The table below outlines the main contributors to the tolerance stackup, divided into areas that are included in this simulation, not included or contribute to the oblique misalignment (<i>also not included</i>). You can hover over the different elements to highlight each area that contribute to
                                     </p>
 
                                     <table class="table text-center">
@@ -435,7 +435,7 @@
                         </div>
                         <div class="modal-body">
                             <p class="text-dark font-weight-normal">
-                                To change which dimensions are displayed on the drawing, please select from the options below:
+                                To change which dimensions are displayed on     each drawing, please select from the options below:
                             </p>
 
                             <h6 class="card-title">Toggle display:</h6>
@@ -453,11 +453,32 @@
                             </div> <br>
 
                             <ul>
-                              <li><b>All</b> - All dimensions relevant to manufacture are shown.</li>
-                              <li><b>Axial</b> - Only the dimensions that contribute to the axial stackup are shown.</li>
-                              <li><b>Radial</b> - Only the dimensions that contribute to the radial stackup are shown.</li>
+                                <li><b>All</b> - All dimensions relevant to manufacture are shown.</li>
+                                <li><b>Axial</b> - Only the dimensions that contribute to the axial stackup are shown.</li>
+                                <li><b>Radial</b> - Only the dimensions that contribute to the radial stackup are shown.</li>
                             </ul>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="betaModal" tabindex="-1" role="dialog" aria-labelledby="betaModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="betaModalLabel">Learning Objects Beta</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-dark font-weight-normal">
+                                Thank you for testing the Learning Objects Beta. Please remember to leave feedback on your experience by pressing the <b>Feedback</b> link in the sidebar.
+                            </p>
+                            <p class="text-dark font-weight-normal">
+                                If you have any additional comments, or wish to report a bug, feel free to send an email at <a href = "mailto:lt2415@ic.ac.uk">lt2415@ic.ac.uk</a>.
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -18,6 +18,9 @@ $(document).ready(function() {
   location.hash = '#introduction';
   $(".nav li").removeClass('active');
   $("#introduction-tab").addClass('active');
+
+  // Beta modal
+  $('#betaModal').modal('show');
 });
 
 /* Dynamic onhashchange event ----------------------------------------------- */

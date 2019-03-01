@@ -72,6 +72,10 @@ figure figcaption {
     min-height: 400px;
 }
 
+#introduction-figure img {
+  max-width: 550px;
+}
+
 #introduction-figure img, #well-shaft-figure img, #spacer-figure img, #poor-shaft-figure img,
 #well-housing-figure img, #poor-housing-figure img, #simulation-figure img{
     border-radius: 2px;
