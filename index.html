@@ -208,7 +208,7 @@
                             <div class="icon">
                                 <span class="fas fa-info-circle"></span>
                             </div>
-                             To toggle which types of stackup dimension are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
+                            To toggle which types of stackup dimension are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
                         </div>
 
                         <h4>Things to try</h4>
@@ -265,7 +265,7 @@
                             <div class="icon">
                                 <span class="fas fa-info-circle"></span>
                             </div>
-                             To toggle which types of stackup dimensions are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
+                            To toggle which types of stackup dimensions are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
                         </div>
 
                         <h4>Things to try</h4>
@@ -353,34 +353,45 @@
                                             <li>Reject units with a total radial misalignment greater than <b>&plusmn; 0.05mm</b>.</li>
                                         </ul><hr>
 
-                                        <h6 class="card-title">Misalignment direction:</h6>
-                                        <div class="btn-group btn-group-toggle d-flex" role="group">
-                                            <!-- Axial is the default setting -->
-                                            <label id="axial-sim" class="btn btn-info flex-fill"> Axial
-                                                <input type="radio" name="Direction" value="axial" checked="checked">
-                                            </label>
-                                            <label id="radial-sim" class="btn btn-outline-info flex-fill"> Radial
-                                                <input type="radio" name="Direction" value="radial">
-                                            </label>
-                                        </div><br>
+                                        <div id="edge-hide">
+                                            <h6 class="card-title">Misalignment direction:</h6>
+                                            <div class="btn-group btn-group-toggle d-flex" role="group">
+                                                <!-- Axial is the default setting -->
+                                                <label id="axial-sim" class="btn btn-info flex-fill"> Axial
+                                                    <input type="radio" name="Direction" value="axial" checked="checked">
+                                                </label>
+                                                <label id="radial-sim" class="btn btn-outline-info flex-fill"> Radial
+                                                    <input type="radio" name="Direction" value="radial">
+                                                </label>
+                                            </div><br>
 
-                                        <h6 class="card-title">Number of units:</h6>
-                                        <div class="btn-group btn-group-toggle d-flex" role="group">
-                                            <!-- 100 units is the default setting -->
-                                            <label id="100units" class="btn btn-info flex-fill"> 100
-                                                <input type="radio" name="Units" value="100" checked="checked">
-                                            </label>
-                                            <label id="1000units" class="btn btn-outline-info flex-fill"> 1,000
-                                                <input type="radio" name="Units" value="1000">
-                                            </label>
-                                            <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
-                                                <input type="radio" name="Units" value="10000">
-                                            </label>
-                                        </div><hr/>
+                                            <h6 class="card-title">Number of units:</h6>
+                                            <div class="btn-group btn-group-toggle d-flex" role="group">
+                                                <!-- 100 units is the default setting -->
+                                                <label id="100units" class="btn btn-info flex-fill"> 100
+                                                    <input type="radio" name="Units" value="100" checked="checked">
+                                                </label>
+                                                <label id="1000units" class="btn btn-outline-info flex-fill"> 1,000
+                                                    <input type="radio" name="Units" value="1000">
+                                                </label>
+                                                <label id="10000units" class="btn btn-outline-info flex-fill"> 10,000
+                                                    <input type="radio" name="Units" value="10000">
+                                                </label>
+                                            </div><hr/>
 
-                                        <span class="tooltip-wrapper btn-block disabled">
-                                            <button id="sim-button" type="button" class="btn btn-block btn-info font-weight-bold">Run</button>
-                                        </span>
+                                            <span class="tooltip-wrapper btn-block disabled">
+                                                <button id="sim-button" type="button" class="btn btn-block btn-info font-weight-bold">Run</button>
+                                            </span>
+                                        </div>
+                                        
+                                        <div id="edge-warning" hidden>
+                                            <div class="alert alert-danger alert-white">
+                                                <div class="icon">
+                                                    <span class="fas fa-info-circle"></span>
+                                                </div>
+                                                <b>Warning!</b> This simulation does not support Microsoft Edge. Supported browsers: Chrome, Firefox, Safari.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -477,7 +488,7 @@
                                 Thank you for testing the Learning Objects Beta. Please remember to leave feedback on your experience by pressing the <b>Feedback</b> link in the sidebar.
                             </p>
                             <p class="text-dark font-weight-normal">
-                                If you have any additional comments, or wish to report a bug, feel free to send an email at <a href = "mailto:lt2415@ic.ac.uk">lt2415@ic.ac.uk</a>.
+                                If you have any additional comments, or wish to report a bug, feel free to send an email at <a href="mailto:lt2415@ic.ac.uk">lt2415@ic.ac.uk</a>.
                             </p>
                         </div>
                     </div>

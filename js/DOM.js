@@ -21,6 +21,12 @@ $(document).ready(function() {
 
   // Beta modal
   $('#betaModal').modal('show');
+
+  // Disable run simulation on Edge browsers
+  if (navigator.userAgent.indexOf('Edge') >= 0){
+    $('#edge-hide').prop('hidden', true);
+    $('#edge-warning').prop('hidden', false);
+  }
 });
 
 /* Dynamic onhashchange event ----------------------------------------------- */
