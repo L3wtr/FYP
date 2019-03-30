@@ -40,6 +40,17 @@ span {
     display: inline-block;
 }
 
+.display-5 {
+    font-size: 2.7rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-right: 20px;
+}
+
+#content .display-5 {
+    white-space: nowrap;
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -161,8 +172,19 @@ a.sidelink:hover {
     color: #123456;
 }
 
+.sidelist {
+    display: flex !important;
+    display: table !important;
+    width:100%;
+}
+
+.icon-height {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .icon-width {
-    min-width: 1em;
+    min-width: 1.2em;
     text-align: center;
 }
 
@@ -181,6 +203,52 @@ a.sidelink:hover {
     min-height: 100vh;
     transition: all 0.3s;
     white-space: wrap;
+}
+
+
+/* ---------------------------------------------------
+    MID SIZED MEDIA
+----------------------------------------------------- */
+
+@media (max-width: 1600px) {
+    p, li, .alert, .side-content li, figcaption {
+        font-size: 0.9em;
+    }
+    h4 {
+        font-size: 1.2em;
+    }
+    h6 {
+        font-size: 1em;
+    }
+    #simulation-container, #simulation-container .btn, #simulation-container input {
+        font-size: 0.9em;
+    }
+    #sidebar {
+        min-width: 150px;
+        max-width: 150px;
+    }
+    #sidebar .sidebar-header strong {
+        font-size: 1.2em;
+    }
+
+    #sidebar ul li a {
+        padding: 8px 8px 8px 16px;
+        font-size: 1em;
+    }
+    #sidebar ul h5 {
+        font-size: 1em;
+    }
+    .display-5 {
+        font-size: 2rem;
+        margin-right: 20px;
+    }
+    #datum-wa.btn-tear, #datum-wb.btn-tear, #datum-pa.btn-tear, #datum-pb.btn-tear, #datum-ha.btn-tear, #datum-hb.btn-tear {
+        transform: rotate(-45deg) scale(0.8) !important;
+    }
+    .form-inline .form-control {
+        width: 70px;
+        padding: .05rem .3rem;
+    }
 }
 
 /* ---------------------------------------------------

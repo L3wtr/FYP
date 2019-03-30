@@ -39,7 +39,7 @@
 
 .btn-outline-info {border-color: #294866; color: #123456;}
 
-/* Alert box ----------------------------------------------------------------- */
+/* Alert box ---------------------------------------------------------------- */
 .alert {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -57,17 +57,17 @@
   top: 50%;
 }
 
-/* Button Group Style -------------------------------------------------------- */
+/* Button Group Style ------------------------------------------------------- */
 .flex-fill {
     flex: 1 1 0;
     width: 0;
 }
 
-#simulation-again .btn {
+#simulation-again .btn, #simulation-again-custom .btn {
     margin: 0px 10px 0px 10px;
 }
 
-/* Run button tooltip -------------------------------------------------------- */
+/* Run button tooltip ------------------------------------------------------- */
 .tooltip-wrapper {
     display: inline-block;
 }
@@ -86,11 +86,11 @@
     position: static;
 }
 
-#well-shaft-figure .btn-group, #poor-shaft-figure .btn-group {
+#well-shaft-figure .btn-group, #poor-shaft-figure .btn-group, #poor-housing-figure .btn-group {
     display: table;
 }
 
-#datum-wa.btn-tear, #datum-wb.btn-tear, #datum-pa.btn-tear, #datum-pb.btn-tear {
+#datum-wa.btn-tear, #datum-wb.btn-tear, #datum-pa.btn-tear, #datum-pb.btn-tear, #datum-ha.btn-tear, #datum-hb.btn-tear {
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -127,17 +127,29 @@
     position: absolute;
 }
 
+#datum-ha {
+    top: 36%;
+    left: calc(92.5% - 17px);
+    position: absolute;
+}
+
+#datum-hb {
+    top: 20.9%;
+    left: calc(86% - 17px);
+    position: absolute;
+}
+
 /* Table Style -------------------------------------------------------------- */
-#data-table {
+#data-table, #data-table-custom {
     font-size: 0.75em;
     padding: 0px 10px 0px 10px;
 }
 
-#data-row1 th {
+#data-row1 th, #data-row1-custom th {
     color: rgb(41, 72, 102);
 }
 
-#data-row2 th {
+#data-row2 th, #data-row2-custom th {
     color: rgb(247, 151, 95);
 }
 
@@ -151,16 +163,20 @@
     padding: 0.5rem;
 }
 
-.btn-light:hover, .btn-outline-light:hover {border-color: #294866;}
-.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle, .btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active, .show>.btn-outline-light.dropdown-toggle {border-color: #294866;}
+/* Custom Form -------------------------------------------------------------- */
 
-table .btn {
-    display: table-cell;
-    border-radius: 0px;
-    border-color: #294866;
-    padding: 0.5rem;
+#simulation-custom .row {
+    margin-left: 10px !important;
 }
 
-table .btn:not(:disabled):not(.disabled) {
-    cursor: default;
+#simulation-custom .col {
+    padding-left: 0px;
+}
+
+#simulation-custom input {
+    margin-right: 5px !important;
+}
+
+#simulation-custom label {
+    width: 30px;
 }

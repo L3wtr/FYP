@@ -38,14 +38,14 @@
             </div>
 
             <ul class="list-unstyled components">
-                <h5> Main </h5>
+                <h5>Main</h5>
                 <li>
                     <a href="#introduction">
                         <i class="fas fa-home icon-width"></i>
                         Home
                     </a>
                 </li>
-                <li hidden>
+                <li>
                     <a href="#introduction">
                         <i class="fas fa-question icon-width"></i>
                         About
@@ -54,9 +54,19 @@
 
                 <h5> Learning Objects </h5>
                 <li>
-                    <a href="#introduction">
-                        <i class="fas fa-cogs icon-width"></i>
+                    <a href="#introduction" class="sidelist">
+                        <div class="icon-height">
+                            <i class="fas fa-cogs icon-width"></i>
+                        </div>
                         Engineering Tolerances
+                    </a>
+                </li>
+                <li>
+                    <a href="#introduction" class="sidelist">
+                        <div class="icon-height">
+                            <i class="fas fa-wrench icon-width"></i>
+                        </div>
+                        Bearing Constraints Model
                     </a>
                 </li>
 
@@ -116,13 +126,13 @@
                     </figure>
 
                     <p class="text-dark font-weight-normal">
-                        The aim of this Learning Object is to demonstrate how your design decisions can influence the final outcome of a manufactured product. When manufacturing parts for an assembly, the position of each component can vary according to an accepted tolerance. Certain dimensions will contribute their own error based on the variation in size between these tolerance limits. In a poorly designed component, these errors can lead to significant misalignments and poor fits in a process known as <b>tolerance stackup</b>.
+                        The aim of this Learning Object is to demonstrate how your design decisions can influence the final outcome of a manufactured product. When manufacturing parts for an assembly, the position of each component can vary according to an accepted tolerance. Certain dimensions will contribute their own error based on the variation in size between these tolerance limits. In a poorly designed component, these errors can lead to significant misalignments and poor fits - a process known as <b>tolerance stackup</b>.
                     </p>
                     <p class="text-dark font-weight-normal">
                         This exercise will cover the design of a simple mechanism, made up of two shafts, two housings and a fixed plate (see <span style="white-space: nowrap">Figure 1</span>). In this example, one side of the mechanism (<span class="font-weight-bold" style="color:rgb(41, 72, 102)">blue</span>) is designed using different types of constraints to reduce tolerance stackup and minimise misalignment of the gears. The other side (<span class="font-weight-bold" style="color:rgb(247, 151, 95)">orange</span>) is an example of a poorly designed assembly that experiences significant tolerance stackup and is susceptible to severe misalignment.
                     </p>
                     <p class="text-dark font-weight-normal">
-                        The tabs in the top right corner will direct you to the relevant engineering drawings, where you will be presented with examples of good and bad engineering design. The <b>simulation</b> page can be used to demonstrate the effect of tolerance stackup by testing the statistical variation in size for each of the manufactured parts.
+                        The tabs in the top right corner will direct you to the relevant engineering drawings, where you will be presented with examples of good and bad engineering design. The <b>simulation</b> page can be used to demonstrate the effects of tolerance stackup by testing the statistical variation in size for each of the manufactured parts.
                     </p>
                 </div>
 
@@ -211,9 +221,11 @@
                             To toggle which types of stackup dimension are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
                         </div>
 
-                        <h4>Things to try</h4>
+                        <h4>Things to think about</h4>
                         <ul>
-                            <li>Try changing the datum reference point to see how it affects the axial misalignment.
+                            <li>Try changing the datum reference point (A and B) to see how it affects the axial misalignment.</li>
+                            <li>Which shaft design is easier to manufacture and why?</li>
+                            <li>What is the benefit of using a spacer?</li>
                         </ul>
                     </div>
                 </div>
@@ -250,7 +262,19 @@
                                     </button>
                                 </div>
 
-                                <img src="LearningObjects/EngineeringTolerances/drawings/all_housing_p.png" alt="Housing Drawings" class="shadow">
+                                <div class="btn-group btn-group-toggle btn-group-datum" role="group">
+                                    <!-- A is the default setting -->
+                                    <label id="datum-ha" class="btn btn-info btn-tear">
+                                        <span class="btn-tear-text font-weight-bold">A</span>
+                                        <input type="radio" name="Datum-H" value="a" checked="checked">
+                                    </label>
+                                    <label id="datum-hb" class="btn btn-outline-info btn-tear">
+                                        <span class="btn-tear-text font-weight-bold">B</span>
+                                        <input type="radio" name="Datum-H" value="b">
+                                    </label>
+                                </div>
+
+                                <img src="LearningObjects/EngineeringTolerances/drawings/all_housing_pa.png" alt="Housing Drawings" class="shadow">
                                 <figcaption>Figure 3b - Bearing Housing Engineering Drawing (Poorly Designed).</figcaption>
                             </figure>
                         </div>
@@ -258,7 +282,7 @@
 
                     <div class="side-content">
                         <p class="text-dark font-weight-normal">
-                            The design of the bearing housings also contribute to the tolerance stackup in both the axial and radial directions. The <b>well designed housing</b> uses a combination of shoulders and an endcap to locate the fixed bearing and the plate. The <b>poorly designed housing</b> uses only internal circlips to locate the bearing, and bolts to locate the plate.
+                            The design of the bearing housings also contribute to the tolerance stackup in both the axial and radial directions. The <b>well designed housing</b> uses a combination of shoulders and an endcap to locate the fixed bearing and the plate. The <b>poorly designed housing</b> only uses internal circlips to locate the bearing, and fasteners to locate the plate.
                         </p>
 
                         <div class="alert alert-primary alert-white">
@@ -268,9 +292,10 @@
                             To toggle which types of stackup dimensions are displayed, click the settings button and select from <i><b>all</b></i>, <i><b>axial</b></i> or <i><b>radial</b></i>.
                         </div>
 
-                        <h4>Things to try</h4>
+                        <h4>Things to think about</h4>
                         <ul>
-                            <li>Try comparing the radial stackup contributions for the well designed and poorly designed housings.
+                            <li>Try comparing the radial stackup contributions for the well designed and poorly designed housings.</li>
+                            <li>How is the tolerance stackup affected by switching the type of fastener in the poorly designed housing - A is constrained by two dowel pins, B is constrained by two hex bolts.</li>
                         </ul>
                     </div>
                 </div>
@@ -282,21 +307,24 @@
 
                     <div id="simulation-container">
                         <figure id="simulation-figure">
-                            <img src="LearningObjects/EngineeringTolerances/drawings/assembly.png" alt="Assembly" class="shadow">
-                            <figcaption>Figure 4 - Example Mechanism Assembly Drawing.</figcaption>
+                            <img src="LearningObjects/EngineeringTolerances/drawings/assembly_a.png" alt="Assembly" class="shadow" id="simulation-assembly">
+                            <figcaption>Figure 4 - Gear Mechanism Assembly Drawing.</figcaption>
                         </figure>
 
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
                                 <span class="nav-link active" href="#distribution-model">Distribution Model</span>
                             </li>
-                            <li class="nav-item" hidden>
-                                <span class="nav-link" href="#stackup-contributions">Stackup Contributions</span>
+                            <li class="nav-item">
+                                <span class="nav-link" href="#simulation-assumptions">Assumptions</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link" href="#simulation-custom">Custom Model</span>
                             </li>
                         </ul>
 
                         <div class="card shadow">
-                            <div class="card-body bg-light tab-content">
+                            <div class="card-body bg-light tab-content" id="simulation-overflow">
 
                                 <div id="distribution-model" class="tab-pane active">
 
@@ -339,22 +367,23 @@
                                     <div id="simulation-settings">
                                         <p class="card-text text-dark font-weight-normal">
                                             This model simulates the stackup distribution based on limits given in the engineering drawings. To test the variation in misalignment, select a direction, the number of units you wish to simulate and press run.
-                                        </p><hr/>
+                                        </p><hr>
 
-                                        <h6 class="card-title">Datums selected:</h6>
+                                        <h6 class="card-title">Datums and Fasteners Selected:</h6>
                                         <ul>
-                                            <li>Well Designed Shaft - <span id="well-datum-text" class="font-weight-bold">Datum A</span>.</li>
-                                            <li>Poorly Designed Shaft - <span id="poor-datum-text" class="font-weight-bold">Datum A</span>.</li>
+                                            <li>Well designed shaft - <span id="well-datum-text" class="font-weight-bold">Datum A</span>.</li>
+                                            <li>Poorly designed shaft - <span id="poor-datum-text" class="font-weight-bold">Datum A</span>.</li>
+                                            <li>Poorly designed housing - <span id="housing-datum-text" class="font-weight-bold">Pin Fasteners</span>.</li>
                                         </ul>
 
-                                        <h6 class="card-title">Quality control:</h6>
+                                        <h6 class="card-title">Quality Control:</h6>
                                         <ul>
                                             <li>Reject units with a total axial misalignment greater than <b>&plusmn; 0.1mm</b>.</li>
                                             <li>Reject units with a total radial misalignment greater than <b>&plusmn; 0.05mm</b>.</li>
                                         </ul><hr>
 
                                         <div id="edge-hide">
-                                            <h6 class="card-title">Misalignment direction:</h6>
+                                            <h6 class="card-title">Misalignment Direction:</h6>
                                             <div class="btn-group btn-group-toggle d-flex" role="group">
                                                 <!-- Axial is the default setting -->
                                                 <label id="axial-sim" class="btn btn-info flex-fill"> Axial
@@ -365,7 +394,7 @@
                                                 </label>
                                             </div><br>
 
-                                            <h6 class="card-title">Number of units:</h6>
+                                            <h6 class="card-title">Number of Units:</h6>
                                             <div class="btn-group btn-group-toggle d-flex" role="group">
                                                 <!-- 100 units is the default setting -->
                                                 <label id="100units" class="btn btn-info flex-fill"> 100
@@ -383,45 +412,204 @@
                                                 <button id="sim-button" type="button" class="btn btn-block btn-info font-weight-bold">Run</button>
                                             </span>
                                         </div>
-                                        
+
                                         <div id="edge-warning" hidden>
                                             <div class="alert alert-danger alert-white">
                                                 <div class="icon">
                                                     <span class="fas fa-info-circle"></span>
                                                 </div>
-                                                <b>Warning!</b> This simulation does not support Microsoft Edge. Supported browsers: Chrome, Firefox, Safari.
+                                                <b>Warning!</b> This simulation does not support Microsoft Edge. Supported browsers: Chrome, Firefox.
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div id="stackup-contributions" class="tab-pane" hidden>
+                                <div id="simulation-assumptions" class="tab-pane">
                                     <p class="card-text text-dark font-weight-normal">
-                                        The table below outlines the main contributors to the tolerance stackup, divided into areas that are included in this simulation, not included or contribute to the oblique misalignment (<i>also not included</i>). You can hover over the different elements to highlight each area that contribute to
+                                        The distribution model simulates the gear mechanism under a number of assumptions.
                                     </p>
 
-                                    <table class="table text-center">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">Axial</th>
-                                                <th scope="col">Radial</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="btn btn-light">Included</td>
-                                                <td class="btn btn-light">Included</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="btn btn-light">Not Included</td>
-                                                <td class="btn btn-light">Not Included</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="btn btn-light">Oblique</td>
-                                                <td class="btn btn-light">Oblique</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <h6 class="card-title">Tolerance asusmptions:</h6>
+                                    <p class="card-text text-dark font-weight-normal">
+                                        The gear mechanism used in this example is made up of multiple components, each with their own unique tolerances. To simplify this model, only the custom manufactured parts (given in the engineering drawings) were considered. The inherent tolerances of stock components (eg. bearings, bolts, gears) were not included as part of this simulation.
+                                    </p>
+
+                                    <h6 class="card-title">Model assumptions:</h6>
+                                    <p class="card-text text-dark font-weight-normal">
+                                        The distribution model simulates the variation in part size using a Gaussian distribution, mapped across the upper and lower limits. Sizes are generated using a 5<sup>th</sup> order approximation method based on the central limit theorem [<a href="https://en.wikipedia.org/wiki/Normal_distribution#Generating_values_from_normal_distribution">1</a>].
+                                    </p>
+
+                                </div>
+
+                                <div id="simulation-custom" class="tab-pane">
+
+                                    <div id="simulation-plot-custom"></div>
+
+                                    <div id="simulation-again-custom" style="display:none;">
+                                        <div id="data-table-custom">
+                                            <table class="table text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        <th scope="col">Mean (&mu;m)</th>
+                                                        <th scope="col">Standard Deviation (&mu;m)</th>
+                                                        <th scope="col">Rejected Units</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="data-row1-custom">
+                                                        <th>Tolerance Set 1</th>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr  id="data-row2-custom">
+                                                        <th>Tolerance Set 2</th>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="d-flex" >
+                                            <button id="sim-button-again-custom" type="button" class="btn btn-info flex-fill font-weight-bold">Run Again</button>
+                                            <button id="sim-button-reset-custom" type="button" class="btn btn-info flex-fill font-weight-bold">Reset</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="simulation-settings-custom">
+                                        <p class="card-text text-dark font-weight-normal">
+                                            To simulate the distribution model for your own designs, add the lower and upper bounds of each dimension, select the number of units and press run.
+                                        </p> <hr>
+
+                                        <div id="bounds-container" class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h6 class="card-title">Tolerance Set 1:</h6>
+
+                                                    <form>
+                                                        <div class="form-group row">
+                                                            <div class="form-inline">
+                                                                <label>Upper:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set1" id="upperA1">
+                                                                <label for="upperA1" class="mm">mm</label>
+                                                            </div>
+                                                            <div class="form-inline">
+                                                                <label>Lower:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set1" id="lowerA1">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="form-inline">
+                                                                <label>Upper:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set1" id="upperB1">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                            <div class="form-inline">
+                                                                <label>Lower:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set1" id="lowerB1">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="form-inline">
+                                                                <label>Upper:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set1" id="upperC1">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                            <div class="form-inline">
+                                                                <label>Lower:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set1" id="lowerC1">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="card-title">Tolerance Set 2:</h6>
+
+                                                    <form>
+                                                        <div class="form-group row">
+                                                            <div class="form-inline">
+                                                                <label>Upper:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set2" id="upperA2">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                            <div class="form-inline">
+                                                                <label>Lower:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set2" id="lowerA2">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="form-inline">
+                                                                <label>Upper:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set2" id="upperB2">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                            <div class="form-inline">
+                                                                <label>Lower:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set2" id="lowerB2">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="form-inline">
+                                                                <label>Upper:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set2" id="upperC2">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                            <div class="form-inline">
+                                                                <label>Lower:</label>
+                                                                <input type="number" max="1" min="-1" step="0.01" value="0" class="form-control mx-sm-3" name="set2" id="lowerC2">
+                                                                <label class="mm">mm</label>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <span class="tooltip-wrapper btn-block">
+                                            <button id="bounds-reset" type="button" class="btn btn-info" style="margin: 10px 0px 0px 25px !important;">Reset Values</button>
+                                        </span>
+
+                                        <hr>
+
+                                        <h6 class="card-title">Quality Control:</h6>
+                                        <div class="form-inline">
+                                            <span class>Reject units with a total misalignment greater than &plusmn;</span>
+                                            <input type="number" max="1" min="0" step="0.01" value="0.1" class="form-control mx-sm-3" id="reject-custom" style="margin-left: 5px !important;">
+                                            <label class="mm">mm</label>
+                                        </div><hr>
+
+                                        <h6 class="card-title">Number of Units:</h6>
+
+                                        <div class="btn-group btn-group-toggle d-flex" role="group">
+                                            <!-- 100 units is the default setting -->
+                                            <label id="100units-custom" class="btn btn-info flex-fill"> 100
+                                                <input type="radio" name="Units-custom" value="100" checked="checked">
+                                            </label>
+                                            <label id="1000units-custom" class="btn btn-outline-info flex-fill"> 1,000
+                                                <input type="radio" name="Units-custom" value="1000">
+                                            </label>
+                                            <label id="10000units-custom" class="btn btn-outline-info flex-fill"> 10,000
+                                                <input type="radio" name="Units-custom" value="10000">
+                                            </label>
+                                        </div><hr/>
+
+                                        <span class="tooltip-wrapper btn-block disabled">
+                                            <button id="sim-button-custom" type="button" class="btn btn-block btn-info font-weight-bold">Run</button>
+                                        </span>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -446,7 +634,7 @@
                         </div>
                         <div class="modal-body">
                             <p class="text-dark font-weight-normal">
-                                To change which dimensions are displayed on     each drawing, please select from the options below:
+                                To change which dimensions are displayed on each drawing, please select from the options below:
                             </p>
 
                             <h6 class="card-title">Toggle display:</h6>
